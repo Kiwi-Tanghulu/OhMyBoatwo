@@ -12,7 +12,7 @@ public class WeaponSlot : MonoBehaviour
     private void Awake()
     {
         rectTransform = transform as RectTransform;
-        iconImage = GetComponent<Image>();
+        iconImage = transform.Find("Icon").GetComponent<Image>();
     }
 
     public void Focus(bool focus)
