@@ -33,16 +33,16 @@ public class Cannon : MonoBehaviour
     {
         //inputSO.OnSpaceEvetnt += Fire;
         if (Input.GetKeyDown(KeyCode.O))
-            Fire(transform.forward * firePower);
+            Fire();
     }
 
-    public void Fire(Vector3 power)
+    public void Fire()
     {
         if (!canFire) return;
 
         cannonBall.gameObject.SetActive(false);
         cannonBall.transform.position = firePoint.position;
-        cannonBall.Fire(power, targetLayer);
+        cannonBall.Fire(transform.forward * firePower, targetLayer);
 
         OnFire?.Invoke(firePoint);
     }
