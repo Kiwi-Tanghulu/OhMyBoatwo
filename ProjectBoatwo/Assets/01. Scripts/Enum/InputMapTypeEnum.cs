@@ -5,9 +5,3 @@ public enum InputMapType
     Ship,
     UI,
 }
-
-public enum AccidentType
-{
-    GhostShip,
-
-}
