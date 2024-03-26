@@ -8,7 +8,8 @@ public class ShipHealth : MonoBehaviour, IDamageable
     [SerializeField] private float maxHealth;
     private float currentHealth;
 
-    public UnityEvent onDamaged;
+    public UnityEvent<float> onDamaged;
+    public UnityEvent<float> onHealed;
     public UnityEvent onSinked;
 
     private void Start()
@@ -19,12 +20,18 @@ public class ShipHealth : MonoBehaviour, IDamageable
     public void OnDamaged(float damage, Transform attacker)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0f);
-        onDamaged?.Invoke();
-
+        onDamaged?.Invoke(damage);
         if(currentHealth <= 0f)
         {
             Sink();
         }
+    }
+
+    public void Heal(float healAmount)
+    {
+        currentHealth += healAmount;
+
+        onHealed?.Invoke(healAmount);
     }
 
     private void Sink()
