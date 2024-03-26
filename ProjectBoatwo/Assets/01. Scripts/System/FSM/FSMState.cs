@@ -9,8 +9,7 @@ public class FSMState : MonoBehaviour
 
     private List<FSMAction> actions;
     private List<FSMTransition> transitions;
-
-    public void Init(FSMBrain brain)
+    public virtual void Init(FSMBrain brain)
     {
         this.brain = brain;
 
@@ -23,7 +22,7 @@ public class FSMState : MonoBehaviour
         transitions.ForEach(i => i.Init(brain, this));
     }
 
-    public void EnterState()
+    public virtual void EnterState()
     {
         actions.ForEach(i => i.EnterState());
 
@@ -49,7 +48,7 @@ public class FSMState : MonoBehaviour
         actions.ForEach(i => i.UpdateState());
     }
 
-    public void ExitState()
+    public virtual void ExitState()
     {
         actions.ForEach(i => i.ExitState());
 

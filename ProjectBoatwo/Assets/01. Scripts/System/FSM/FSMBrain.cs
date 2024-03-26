@@ -8,8 +8,9 @@ public class FSMBrain : MonoBehaviour
     public UnityEvent<FSMState, FSMState> OnStateChangedEvent = null;
 
     [SerializeField] FSMState currentState = null;
+    public FSMState CurrentState => currentState;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Transform statesTrm = transform.Find("States");
 
