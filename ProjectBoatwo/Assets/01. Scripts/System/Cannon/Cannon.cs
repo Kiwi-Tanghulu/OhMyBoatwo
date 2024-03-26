@@ -21,19 +21,12 @@ public class Cannon : MonoBehaviour
 
     public UnityEvent<Transform> OnFire;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         cannonBall = Instantiate(cannonBallPrefab, transform);
         cannonBall.gameObject.SetActive(false);
         canFire = true;
         wfs = new WaitForSeconds(fireDelay);
-    }
-
-    private void Update()
-    {
-        //inputSO.OnSpaceEvetnt += Fire;
-        if (Input.GetKeyDown(KeyCode.O))
-            Fire();
     }
 
     public void Fire()
@@ -42,8 +35,8 @@ public class Cannon : MonoBehaviour
 
         cannonBall.gameObject.SetActive(false);
         cannonBall.transform.position = firePoint.position;
-        cannonBall.Fire(transform.forward * firePower, targetLayer);
-
+        cannonBall.Fire(firePoint.forward * firePower, targetLayer);
+        Debug.Log(123);
         OnFire?.Invoke(firePoint);
     }
 

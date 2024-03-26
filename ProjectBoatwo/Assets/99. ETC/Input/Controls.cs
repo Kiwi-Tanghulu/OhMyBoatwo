@@ -369,6 +369,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseLeftDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbb51154-b516-4d01-bb0e-525730187042"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -536,6 +545,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""MouseDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cbb8bd0-a090-48ca-813c-4f65d86492d2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseLeftDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -631,6 +651,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Ship_Space = m_Ship.FindAction("Space", throwIfNotFound: true);
         m_Ship_M = m_Ship.FindAction("M", throwIfNotFound: true);
         m_Ship_MouseDelta = m_Ship.FindAction("MouseDelta", throwIfNotFound: true);
+        m_Ship_MouseLeftDown = m_Ship.FindAction("MouseLeftDown", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
@@ -867,6 +888,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Ship_Space;
     private readonly InputAction m_Ship_M;
     private readonly InputAction m_Ship_MouseDelta;
+    private readonly InputAction m_Ship_MouseLeftDown;
     public struct ShipActions
     {
         private @Controls m_Wrapper;
@@ -878,6 +900,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Space => m_Wrapper.m_Ship_Space;
         public InputAction @M => m_Wrapper.m_Ship_M;
         public InputAction @MouseDelta => m_Wrapper.m_Ship_MouseDelta;
+        public InputAction @MouseLeftDown => m_Wrapper.m_Ship_MouseLeftDown;
         public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -908,6 +931,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseDelta.started += instance.OnMouseDelta;
             @MouseDelta.performed += instance.OnMouseDelta;
             @MouseDelta.canceled += instance.OnMouseDelta;
+            @MouseLeftDown.started += instance.OnMouseLeftDown;
+            @MouseLeftDown.performed += instance.OnMouseLeftDown;
+            @MouseLeftDown.canceled += instance.OnMouseLeftDown;
         }
 
         private void UnregisterCallbacks(IShipActions instance)
@@ -933,6 +959,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseDelta.started -= instance.OnMouseDelta;
             @MouseDelta.performed -= instance.OnMouseDelta;
             @MouseDelta.canceled -= instance.OnMouseDelta;
+            @MouseLeftDown.started -= instance.OnMouseLeftDown;
+            @MouseLeftDown.performed -= instance.OnMouseLeftDown;
+            @MouseLeftDown.canceled -= instance.OnMouseLeftDown;
         }
 
         public void RemoveCallbacks(IShipActions instance)
@@ -1039,6 +1068,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnSpace(InputAction.CallbackContext context);
         void OnM(InputAction.CallbackContext context);
         void OnMouseDelta(InputAction.CallbackContext context);
+        void OnMouseLeftDown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

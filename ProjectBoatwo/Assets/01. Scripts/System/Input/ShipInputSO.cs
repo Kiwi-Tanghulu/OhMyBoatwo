@@ -15,6 +15,7 @@ public class ShipInputSO : InputSO, IShipActions
     public event Action OnEscapeEvetnt;
     public event Action OnSpaceEvetnt;
     public event Action OnMEvent;
+    public event Action OnMouseLeftDownEvent;
      
     protected override void OnEnable()
     {
@@ -59,5 +60,11 @@ public class ShipInputSO : InputSO, IShipActions
     public void OnMouseDelta(InputAction.CallbackContext context)
     {
         OnMouseDeltaEvent?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    public void OnMouseLeftDown(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            OnMouseLeftDownEvent?.Invoke();
     }
 }

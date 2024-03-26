@@ -77,8 +77,6 @@ public class GhostShip : Accident
 
     public void Appear(bool value)
     {
-        Debug.Log(anim);
-
         if(value)
             anim.SetTrigger(appearHash);
         else
