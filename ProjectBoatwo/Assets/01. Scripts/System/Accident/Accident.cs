@@ -17,6 +17,7 @@ public abstract class Accident : MonoBehaviour
     public abstract void UpdateAccident();
     public virtual void EndAccident()
     {
+        AccidentManager.Instance.EndAccident(this);
         isActive = false;
     }
 }

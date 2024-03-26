@@ -5,10 +5,13 @@ using UnityEngine.Events;
 
 public class AccidentManager : MonoBehaviour
 {
+    public static AccidentManager Instance;
+
     [SerializeField] private StageAccidentInfoSO accidentInfo;
     [SerializeField] private float checkStartAccidentInterval;
     private float currentInterval; // test field;
     private List<Accident> activeAccidents;
+    private List<StageAccidentInfo> allAccidentInfos;
 
     private WaitForSeconds wfs;
 
@@ -17,13 +20,15 @@ public class AccidentManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         activeAccidents = new List<Accident>();
         wfs = new WaitForSeconds(checkStartAccidentInterval);
     }
 
     private void Start()
     {
-        //InitAccident();
+        InitAccident();
 
         StartCoroutine(CheckStartAccident());
     }
@@ -37,19 +42,28 @@ public class AccidentManager : MonoBehaviour
 
     private void InitAccident()
     {
-        for (int i = 0; i < accidentInfo.stageAccidentInfos.Count; i++)
+        allAccidentInfos = new List<StageAccidentInfo>();
+
+        foreach(StageAccidentInfo accidentInfo in accidentInfo.stageAccidentInfos)
         {
-            accidentInfo.stageAccidentInfos[i].accident.InitAccident();
+            StageAccidentInfo info = new StageAccidentInfo();
+            info.startTime = accidentInfo.startTime;
+            info.accident = Instantiate(accidentInfo.accident, transform);
+            info.accident.InitAccident();
+            info.accident.gameObject.SetActive(false);
+            allAccidentInfos.Add(info);
         }
     }
 
     public void StartAccident(Accident accident)
     {
-        Accident accidentInstance = Instantiate(accident, transform);
-        accidentInstance.InitAccident();
-        accidentInstance.StartAccident();
-        activeAccidents.Add(accidentInstance);
-        onStartAccident?.Invoke(accidentInstance.AccidentType);
+        if (accident.isActive)
+            return;
+
+        accident.gameObject.SetActive(true);
+        accident.StartAccident();
+        activeAccidents.Add(accident);
+        onStartAccident?.Invoke(accident.AccidentType);
     }
 
     private void UpdateAccidents()
@@ -60,17 +74,22 @@ public class AccidentManager : MonoBehaviour
         }
     }
 
+    public void EndAccident(Accident accident)
+    {
+        activeAccidents.Remove(accident);
+    }
+
     private IEnumerator CheckStartAccident()
     {
         while (true)
         {
             yield return wfs;
 
-            for (int i = 0; i < accidentInfo.stageAccidentInfos.Count; i++)
+            for (int i = 0; i < allAccidentInfos.Count; i++)
             {
-                if (Mathf.Abs(accidentInfo.stageAccidentInfos[i].startTime - currentInterval) <= 0.1f)
+                if (Mathf.Abs(allAccidentInfos[i].startTime - currentInterval) <= 0.1f)
                 {
-                    StartAccident(accidentInfo.stageAccidentInfos[i].accident);
+                    StartAccident(allAccidentInfos[i].accident);
                 }
             }
         }

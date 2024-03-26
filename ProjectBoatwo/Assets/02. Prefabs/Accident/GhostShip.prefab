@@ -72,7 +72,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2554061804912914049}
   - component: {fileID: 7737922911700527970}
+  - component: {fileID: 9048535363623666009}
   - component: {fileID: 6263856666017302320}
+  - component: {fileID: 7481554638508154384}
   - component: {fileID: 4822277328027929314}
   m_Layer: 0
   m_Name: GhostShip
@@ -121,6 +123,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &9048535363623666009
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658472256449974029}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2965796487556612877, guid: 32d06e348e4372e46bedfdeb59405dc1, type: 3}
 --- !u!114 &6263856666017302320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,11 +157,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e30a7ee7c507c4f8518dfa9e1e7091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accidentType: 0
   maxCannonFireDelay: 5
   minCannonFireDelay: 2
   maxFireCount: 3
   minFireCount: 1
   chaseDistance: 35
+--- !u!114 &7481554638508154384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658472256449974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6320b1f7c568b6545854db26d707a0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  onDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6263856666017302320}
+        m_TargetAssemblyTypeName: GhostShip, Assembly-CSharp
+        m_MethodName: EndAccident
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4822277328027929314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +433,6 @@ GameObject:
   - component: {fileID: 7516626277747212949}
   - component: {fileID: 5557204824836262787}
   - component: {fileID: 2564403133133291549}
-  - component: {fileID: 2671134179715102172}
   m_Layer: 20
   m_Name: Visual
   m_TagString: Untagged
@@ -447,28 +505,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2671134179715102172
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527564677696342891}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2965796487556612877, guid: 32d06e348e4372e46bedfdeb59405dc1, type: 3}
 --- !u!1 &6098827756586623785
 GameObject:
   m_ObjectHideFlags: 0
