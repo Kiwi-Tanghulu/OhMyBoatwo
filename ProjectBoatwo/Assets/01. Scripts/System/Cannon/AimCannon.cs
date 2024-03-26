@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cinemachine;
 
 public class AimCannon : Cannon, IFocusable, IInteractable
 {
     [SerializeField] private ShipInputSO input;
 
     [SerializeField] private Transform muzzleTrm;
+
+    [SerializeField] private CinemachineVirtualCamera vCam;
 
     [Space]
     [SerializeField] private Vector2 maxRotate;
@@ -78,6 +81,7 @@ public class AimCannon : Cannon, IFocusable, IInteractable
     {
         Debug.Log("cannon interact");
         InputManager.ChangeInputMap(InputMapType.Ship);
+        vCam.Priority = int.MaxValue;
         return true;
     }
 }
