@@ -12,8 +12,12 @@ public class GhostShip : MonoBehaviour
     private readonly int disappearHash = Animator.StringToHash("Disappear");
 
     [Space]
-    [SerializeField] private float maxCannonPower;
-    [SerializeField] private float minCannonPower;
+    [SerializeField] private float maxCannonFireDelay;
+    [SerializeField] private float minCannonFireDelay;
+    private float cannonfireDelay;
+    private float currentCannonfireDelay;
+    [SerializeField] private int maxFireCount;
+    [SerializeField] private int minFireCount;
     private Cannon[] cannons;
     private int[] cannonIndices;
 
@@ -29,6 +33,9 @@ public class GhostShip : MonoBehaviour
         cannonIndices = new int[cannons.Length];
         for (int i = 0; i < cannons.Length; i++)
             cannonIndices[i] = i;
+
+        cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
+        currentCannonfireDelay = 0f;
     }
 
     private void Start()
@@ -43,9 +50,13 @@ public class GhostShip : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
             Appear(false);
         if (Input.GetKeyDown(KeyCode.E))
-            Fire(5);
+            Fire();
 
         Chase();
+
+        currentCannonfireDelay += Time.deltaTime;
+        if (currentCannonfireDelay > cannonfireDelay)
+            Fire();
     }
 
     public void Appear(bool value)
@@ -56,24 +67,28 @@ public class GhostShip : MonoBehaviour
             anim.SetTrigger(disappearHash);
     }
 
-    public void Fire(int fireCount)
+    public void Fire()
     {
         int shuffleCount = 10;
         int a;
         int b;
         int temp;
-        for(int i = 0; i < shuffleCount; i++)
+        for (int i = 0; i < shuffleCount; i++)
         {
             a = UnityEngine.Random.Range(0, cannonIndices.Length);
             b = UnityEngine.Random.Range(0, cannonIndices.Length);
-            
+
             temp = cannonIndices[a];
             cannonIndices[a] = cannonIndices[b];
             cannonIndices[b] = temp;
         }
 
+        int fireCount = UnityEngine.Random.Range(minFireCount, maxFireCount + 1);
         for (int i = 0; i < fireCount; i++)
             cannons[cannonIndices[i]].Fire();
+
+        cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
+        currentCannonfireDelay = 0f;
     }
 
     private void Chase()
