@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CannonBall : MonoBehaviour
 {
     [SerializeField] private float deactiveTime;
+    [SerializeField] private float hitDamage;
     private Coroutine deactiveCo;
     private WaitForSeconds wfs;
 
     private Rigidbody rb;
 
     private LayerMask targetLayer;
+
+    public UnityEvent onHit;
 
     private void Awake()
     {
@@ -20,7 +24,9 @@ public class CannonBall : MonoBehaviour
 
     private void Update()
     {
-        transform.forward = rb.velocity.normalized;
+        Vector3 dir = rb.velocity.normalized;
+        if(dir != Vector3.zero)
+            transform.forward = rb.velocity.normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -49,7 +55,10 @@ public class CannonBall : MonoBehaviour
     {
         if (1 << obj.gameObject.layer == targetLayer)
         {
-            Debug.Log($"hit cannon : {obj.gameObject.name}");
+            if (obj.transform.TryGetComponent<IDamageable>(out IDamageable d))
+                d.OnDamaged(hitDamage, transform);
+            
+            onHit?.Invoke();
             StopAllCoroutines();
             gameObject.SetActive(false);
         }
