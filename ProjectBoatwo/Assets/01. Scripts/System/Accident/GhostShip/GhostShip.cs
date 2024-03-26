@@ -58,11 +58,6 @@ public class GhostShip : Accident
 
     public override void UpdateAccident()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            Appear(true);
-        if (Input.GetKeyDown(KeyCode.D))
-            Appear(false);
-
         Chase();
 
         if(completeAppear)

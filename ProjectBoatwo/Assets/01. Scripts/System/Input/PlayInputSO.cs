@@ -55,8 +55,8 @@ public class PlayInputSO : InputSO, IPlayActions
     {
         if(context.started)
             OnInteractEvent?.Invoke(true);
-        else if(context.canceled)
-            OnInteractEvent?.Invoke(false);
+        //else if(context.canceled)
+        //    OnInteractEvent?.Invoke(false);
     }
 
     public void OnMouseWheel(InputAction.CallbackContext context)

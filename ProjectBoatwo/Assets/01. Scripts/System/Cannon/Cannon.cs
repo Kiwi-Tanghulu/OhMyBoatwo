@@ -36,7 +36,6 @@ public class Cannon : MonoBehaviour
         cannonBall.gameObject.SetActive(false);
         cannonBall.transform.position = firePoint.position;
         cannonBall.Fire(firePoint.forward * firePower, targetLayer);
-        Debug.Log(123);
         OnFire?.Invoke(firePoint);
     }
 

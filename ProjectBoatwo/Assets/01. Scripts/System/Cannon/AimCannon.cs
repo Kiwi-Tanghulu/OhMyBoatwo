@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class AimCannon : Cannon
+public class AimCannon : Cannon, IFocusable, IInteractable
 {
     [SerializeField] private ShipInputSO input;
 
@@ -20,6 +20,8 @@ public class AimCannon : Cannon
     private Animator anim;
     private readonly int fireHash = Animator.StringToHash("Fire");
 
+    public GameObject CurrentObject => gameObject;
+
     protected override void Awake()
     {
         base.Awake();
@@ -33,8 +35,6 @@ public class AimCannon : Cannon
     {
         input.OnMoveEvent += SetRotateDir;
         input.OnMouseLeftDownEvent += Fire;
-
-        InputManager.ChangeInputMap(InputMapType.Ship);
     }
 
     private void Update()
@@ -62,5 +62,22 @@ public class AimCannon : Cannon
         base.Fire();
 
         anim.SetTrigger(fireHash);
+    }
+
+    public void OnFocusBegin(Vector3 point)
+    {
+        Debug.Log("start focus");
+    }
+
+    public void OnFocusEnd()
+    {
+        Debug.Log("end focus");
+    }
+
+    public bool Interact(Component performer, bool actived, Vector3 point = default)
+    {
+        Debug.Log("cannon interact");
+        InputManager.ChangeInputMap(InputMapType.Ship);
+        return true;
     }
 }
