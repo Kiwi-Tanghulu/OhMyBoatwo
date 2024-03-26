@@ -6,35 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //[SerializeField] private PlayInputSO input;
-    //public PlayInputSO Input => input;
+    [SerializeField] private PlayInputSO input;
+    public PlayInputSO Input => input;
 
     [SerializeField] private float speedMultiplier;
 
-    [SerializeField] private float runSpeed;
-    public float RunSpeed => runSpeed;
-    [SerializeField] private float walkSpeed;
-    public float WalkSpeed => walkSpeed;
-    [SerializeField] private float swimSpeed;
-    public float SwimSpeed => swimSpeed;
-    [SerializeField] private float climSpeed;
-    public float ClimSpeed => climbSpeed;
-
     private float currentMaxSpeed;
-    public float CurrentMaxSpeed => currentMaxSpeed;
+
     private float currentSpeed;
     public float CurrentSpeed => currentSpeed;
-
-    [SerializeField] private float climbSpeed;
-    public float ClimbSpeed => climbSpeed;
-
-    [SerializeField] private float jumpPower;
-    public float JumpPower => jumpPower;
     public Vector3 MoveDir { get; private set; }
     private Vector3 lastMoveDir;
 
     private bool isJump;
     public bool IsJump { get => isJump; set => isJump = value; }
+
+    private bool isRun;
+    public bool IsRun { get; set; }
 
     #region LadderVariable
     public Vector3 LadderUpPos { get; private set; }
@@ -48,19 +36,19 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private BoxCollider groundCheckCol;
-
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        InputManager.ChangeInputMap(InputMapType.Play);
     }
     private void Start()
     {
-        //input.OnMoveEvent += SetMoveDirection;
+        input.OnMoveEvent += SetMoveDirection;
         isJump = false;
     }
     private void OnDestroy()
     {
-        //input.OnMoveEvent -= SetMoveDirection;
+        input.OnMoveEvent -= SetMoveDirection;
     }
     public void SetCurrentMaxSpeed(float _currentMaxSpeed)
     {
@@ -69,10 +57,10 @@ public class PlayerMovement : MonoBehaviour
     public void SpeedCalculate()
     {
         if (currentSpeed > currentMaxSpeed)
-            currentSpeed += -speedMultiplier * Time.deltaTime;
+            currentSpeed += -speedMultiplier * Time.fixedDeltaTime;
         else
-            currentSpeed += (MoveDir.sqrMagnitude > 0.1f ? speedMultiplier : -speedMultiplier) * Time.deltaTime;
-        currentSpeed = Mathf.Clamp(currentSpeed, 0f, runSpeed);
+            currentSpeed += (MoveDir.sqrMagnitude > 0.1f ? speedMultiplier : -speedMultiplier) * Time.fixedDeltaTime;
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, float.MaxValue);
     }
     public void ResetSpeed()
     {
@@ -96,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        SpeedCalculate();
         Move();
     }
     public void SetMoveDirection(Vector2 value)
