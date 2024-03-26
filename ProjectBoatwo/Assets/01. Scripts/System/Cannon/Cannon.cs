@@ -15,7 +15,6 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float firePower;
     [SerializeField] private float fireDelay;
     [SerializeField] private CannonBall cannonBallPrefab;
-    private CannonBall cannonBall;
     private WaitForSeconds wfs;
     private bool canFire;
 
@@ -23,8 +22,6 @@ public class Cannon : MonoBehaviour
 
     protected virtual void Awake()
     {
-        cannonBall = Instantiate(cannonBallPrefab, transform);
-        cannonBall.gameObject.SetActive(false);
         canFire = true;
         wfs = new WaitForSeconds(fireDelay);
     }
@@ -33,9 +30,10 @@ public class Cannon : MonoBehaviour
     {
         if (!canFire) return;
 
-        cannonBall.gameObject.SetActive(false);
-        cannonBall.transform.position = firePoint.position;
-        cannonBall.Fire(firePoint.forward * firePower, targetLayer);
+        CannonBall ball = PoolManager.Instance.Pop(cannonBallPrefab.name, firePoint.position) as CannonBall;
+        ball.gameObject.SetActive(false);
+        ball.transform.position = firePoint.position;
+        ball.Fire(firePoint.forward * firePower, targetLayer);
         OnFire?.Invoke(firePoint);
     }
 

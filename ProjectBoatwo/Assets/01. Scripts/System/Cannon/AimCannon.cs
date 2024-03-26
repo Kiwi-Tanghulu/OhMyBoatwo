@@ -25,6 +25,8 @@ public class AimCannon : Cannon, IFocusable, IInteractable
 
     public GameObject CurrentObject => gameObject;
 
+    private bool selected;
+
     protected override void Awake()
     {
         base.Awake();
@@ -32,6 +34,7 @@ public class AimCannon : Cannon, IFocusable, IInteractable
         anim = GetComponent<Animator>();
         originRotate = new Vector3(muzzleTrm.eulerAngles.x, transform.eulerAngles.y, 0f);
         currentRotate = Vector3.zero;
+        selected = false;
     }
 
     private void Start()
@@ -47,6 +50,9 @@ public class AimCannon : Cannon, IFocusable, IInteractable
 
     private void SetRotateDir(Vector2 input)
     {
+        if (!selected)
+            return;
+
         rotateDir = new Vector2(input.x, -input.y);
     }
 
@@ -62,6 +68,9 @@ public class AimCannon : Cannon, IFocusable, IInteractable
 
     public override void Fire()
     {
+        if (!selected)
+            return;
+
         base.Fire();
 
         anim.SetTrigger(fireHash);
@@ -82,6 +91,7 @@ public class AimCannon : Cannon, IFocusable, IInteractable
         Debug.Log("cannon interact");
         InputManager.ChangeInputMap(InputMapType.Ship);
         vCam.Priority = int.MaxValue;
+        selected = true;
         return true;
     }
 }
