@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe33218007a7ef148b878e60d33364b9, type: 3}
+  m_Name: StageAccidentInfoSO
+  m_EditorClassIdentifier: 
+  stageAccidentInfos:
+  - startTime: 2
+    accident: {fileID: 6263856666017302320, guid: 26bde4f3e56d0a8479fd171fedbe9264,
+      type: 3}
