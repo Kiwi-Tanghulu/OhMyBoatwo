@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ShipHealth : MonoBehaviour, IDamageable
+public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth;
     private float currentHealth;
 
     public UnityEvent<float> onDamaged;
     public UnityEvent<float> onHealed;
-    public UnityEvent onSinked;
+    public UnityEvent onDied;
 
     private void Start()
     {
@@ -21,9 +21,10 @@ public class ShipHealth : MonoBehaviour, IDamageable
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0f);
         onDamaged?.Invoke(damage);
+
         if(currentHealth <= 0f)
         {
-            Sink();
+            Die();
         }
     }
 
@@ -34,9 +35,9 @@ public class ShipHealth : MonoBehaviour, IDamageable
         onHealed?.Invoke(healAmount);
     }
 
-    private void Sink()
+    private void Die()
     {
-        Debug.Log("sink");
-        onSinked?.Invoke();
+        Debug.Log("die");
+        onDied?.Invoke();
     }
 }

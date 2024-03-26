@@ -6,3 +6,8 @@ public enum InputMapType
     UI,
 }
 
+public enum AccidentType
+{
+    GhostShip,
+
+}

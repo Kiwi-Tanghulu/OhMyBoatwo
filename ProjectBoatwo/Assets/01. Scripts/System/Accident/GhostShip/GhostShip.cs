@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class GhostShip : MonoBehaviour
+public class GhostShip : Accident
 {
     [Space]
     private Animator anim;
@@ -25,7 +25,9 @@ public class GhostShip : MonoBehaviour
     [SerializeField] private float chaseDistance;
     private Transform shipTrm;
 
-    private void Awake()
+    private bool completeAppear;
+
+    public override void InitAccident()
     {
         anim = GetComponent<Animator>();
 
@@ -34,33 +36,49 @@ public class GhostShip : MonoBehaviour
         for (int i = 0; i < cannons.Length; i++)
             cannonIndices[i] = i;
 
+        shipTrm = Ship.Instance.transform;
+
+        completeAppear = false;
+    }
+
+    public override void StartAccident()
+    {
+        base.StartAccident();
+
+        Appear(true);
+
         cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
         currentCannonfireDelay = 0f;
     }
 
-    private void Start()
-    {
-        shipTrm = Ship.Instance.transform;
-    }
-
-    private void Update()
+    public override void UpdateAccident()
     {
         if (Input.GetKeyDown(KeyCode.A))
             Appear(true);
         if (Input.GetKeyDown(KeyCode.D))
             Appear(false);
-        if (Input.GetKeyDown(KeyCode.E))
-            Fire();
 
         Chase();
 
-        currentCannonfireDelay += Time.deltaTime;
-        if (currentCannonfireDelay > cannonfireDelay)
-            Fire();
+        if(completeAppear)
+        {
+            currentCannonfireDelay += Time.deltaTime;
+            if (currentCannonfireDelay > cannonfireDelay)
+                Fire();
+        }
+    }
+
+    public override void EndAccident()
+    {
+        base.EndAccident();
+
+        Appear(false);
     }
 
     public void Appear(bool value)
     {
+        Debug.Log(anim);
+
         if(value)
             anim.SetTrigger(appearHash);
         else
@@ -101,4 +119,7 @@ public class GhostShip : MonoBehaviour
         transform.position = new Vector3(targetPos.x, yPos, targetPos.z);
         transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
     }
+
+    public void CompleteAppear() => completeAppear = true;//animation method
+    public void CompleteDisappear() => completeAppear = false;//animation method
 }
