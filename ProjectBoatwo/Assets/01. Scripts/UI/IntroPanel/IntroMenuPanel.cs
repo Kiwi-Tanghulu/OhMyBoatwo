@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPanel : MonoBehaviour
 {
 	public void ClickSinglePlay()
     {
         Debug.Log("Play Single");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void ClickCOOPPlay()
