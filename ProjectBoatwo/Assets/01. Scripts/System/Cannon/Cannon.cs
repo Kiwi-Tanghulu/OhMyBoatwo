@@ -29,7 +29,7 @@ public class Cannon : MonoBehaviour
         wfs = new WaitForSeconds(fireDelay);
     }
 
-    public void Fire()
+    public virtual void Fire()
     {
         if (!canFire) return;
 

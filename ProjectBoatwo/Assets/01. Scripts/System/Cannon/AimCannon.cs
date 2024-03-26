@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class AimCannon : Cannon
 {
@@ -17,10 +17,14 @@ public class AimCannon : Cannon
     private Vector3 originRotate;
     private Vector2 rotateDir;
 
+    private Animator anim;
+    private readonly int fireHash = Animator.StringToHash("Fire");
+
     protected override void Awake()
     {
         base.Awake();
 
+        anim = GetComponent<Animator>();
         originRotate = new Vector3(muzzleTrm.eulerAngles.x, transform.eulerAngles.y, 0f);
         currentRotate = Vector3.zero;
     }
@@ -51,5 +55,12 @@ public class AimCannon : Cannon
 
         muzzleTrm.localRotation = Quaternion.Euler(originRotate.x + currentRotate.y, 0f, 0f);
         transform.localRotation = Quaternion.Euler(0f, originRotate.y + currentRotate.x, 0f);
+    }
+
+    public override void Fire()
+    {
+        base.Fire();
+
+        anim.SetTrigger(fireHash);
     }
 }
