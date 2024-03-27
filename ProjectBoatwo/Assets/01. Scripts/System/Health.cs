@@ -12,7 +12,7 @@ public class Health : MonoBehaviour, IDamageable
     public UnityEvent<float> onHealed;
     public UnityEvent onDied;
 
-    private void Start()
+    protected virtual void Start()
     {
         currentHealth = maxHealth;
     }

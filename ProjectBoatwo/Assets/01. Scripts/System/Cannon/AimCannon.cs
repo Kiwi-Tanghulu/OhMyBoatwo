@@ -41,6 +41,7 @@ public class AimCannon : Cannon, IFocusable, IInteractable
     {
         input.OnMoveEvent += SetRotateDir;
         input.OnMouseLeftDownEvent += Fire;
+        input.OnFEvent += DisableCannon;
     }
 
     private void Update()
@@ -76,6 +77,13 @@ public class AimCannon : Cannon, IFocusable, IInteractable
         anim.SetTrigger(fireHash);
     }
 
+    private void DisableCannon()
+    {
+        InputManager.ChangeInputMap(InputMapType.Play);
+        vCam.Priority = 0;
+        selected = false;
+    }
+
     public void OnFocusBegin(Vector3 point)
     {
         Debug.Log("start focus");
@@ -88,7 +96,9 @@ public class AimCannon : Cannon, IFocusable, IInteractable
 
     public bool Interact(Component performer, bool actived, Vector3 point = default)
     {
-        Debug.Log("cannon interact");
+        if (!actived)
+            return false;
+         
         InputManager.ChangeInputMap(InputMapType.Ship);
         vCam.Priority = int.MaxValue;
         selected = true;

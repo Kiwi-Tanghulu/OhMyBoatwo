@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class Cannon : MonoBehaviour
 {
-    //[SerializeField] private ShipInputSO inputSO;
-
     [Space]
     [SerializeField] private LayerMask targetLayer;
 
