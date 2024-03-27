@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CannonBall : MonoBehaviour
+public class CannonBall : PoolableMono
 {
     [SerializeField] private float deactiveTime;
     [SerializeField] private float hitDamage;
@@ -69,5 +69,10 @@ public class CannonBall : MonoBehaviour
         yield return wfs;
 
         gameObject.SetActive(false);
+    }
+
+    public override void Init()
+    {
+        Debug.Log("pop cannon ball");
     }
 }

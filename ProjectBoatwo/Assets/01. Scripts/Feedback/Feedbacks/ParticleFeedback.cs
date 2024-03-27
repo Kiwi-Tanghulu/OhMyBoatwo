@@ -8,6 +8,7 @@ public class ParticleFeedback : Feedback
 
     public override void Play(Transform playTrm)
     {
-        PoolManager.Instance.Pop(particleObj.name, playTrm.position);
+        PoolableMono particle = PoolManager.Instance.Pop(particleObj.name, playTrm.position);
+        particle.transform.rotation = playTrm.rotation;
     }
 }

@@ -7,11 +7,12 @@ public abstract class Accident : MonoBehaviour
     [SerializeField] private AccidentType accidentType;
     public AccidentType AccidentType => accidentType;
 
-    public bool isActive { get; private set; }
+    public bool isActive { get; protected set; }
 
     public abstract void InitAccident();
     public virtual void StartAccident()
     {
+        gameObject.SetActive(true);
         isActive = true;
     }
     public abstract void UpdateAccident();
@@ -19,5 +20,6 @@ public abstract class Accident : MonoBehaviour
     {
         AccidentManager.Instance.EndAccident(this);
         isActive = false;
+        gameObject.SetActive(false);
     }
 }
