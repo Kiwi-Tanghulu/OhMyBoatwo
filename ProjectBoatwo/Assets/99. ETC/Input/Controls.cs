@@ -98,33 +98,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reload"",
-                    ""type"": ""Button"",
-                    ""id"": ""feb910a9-ef9c-4bb0-80ed-bc5d5dbe210c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Aim"",
-                    ""type"": ""Button"",
-                    ""id"": ""ebf32aae-165c-4f09-a8b6-bf077d8592b7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Change"",
-                    ""type"": ""Button"",
-                    ""id"": ""d01885b2-691e-4bc5-8f2d-bd30f1753770"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -257,39 +230,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b7ced9cc-28df-4b05-b06e-fad6b87fb347"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reload"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8646beab-9fc5-46d6-afeb-9acc0517014f"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2fe68762-48af-4ce7-b51a-237df8dc56bd"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -677,9 +617,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Play_Interact = m_Play.FindAction("Interact", throwIfNotFound: true);
         m_Play_Fire = m_Play.FindAction("Fire", throwIfNotFound: true);
         m_Play_Run = m_Play.FindAction("Run", throwIfNotFound: true);
-        m_Play_Reload = m_Play.FindAction("Reload", throwIfNotFound: true);
-        m_Play_Aim = m_Play.FindAction("Aim", throwIfNotFound: true);
-        m_Play_Change = m_Play.FindAction("Change", throwIfNotFound: true);
         // MiniGame
         m_MiniGame = asset.FindActionMap("MiniGame", throwIfNotFound: true);
         m_MiniGame_Space = m_MiniGame.FindAction("Space", throwIfNotFound: true);
@@ -767,9 +704,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Play_Interact;
     private readonly InputAction m_Play_Fire;
     private readonly InputAction m_Play_Run;
-    private readonly InputAction m_Play_Reload;
-    private readonly InputAction m_Play_Aim;
-    private readonly InputAction m_Play_Change;
     public struct PlayActions
     {
         private @Controls m_Wrapper;
@@ -782,9 +716,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Play_Interact;
         public InputAction @Fire => m_Wrapper.m_Play_Fire;
         public InputAction @Run => m_Wrapper.m_Play_Run;
-        public InputAction @Reload => m_Wrapper.m_Play_Reload;
-        public InputAction @Aim => m_Wrapper.m_Play_Aim;
-        public InputAction @Change => m_Wrapper.m_Play_Change;
         public InputActionMap Get() { return m_Wrapper.m_Play; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -818,15 +749,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
-            @Reload.started += instance.OnReload;
-            @Reload.performed += instance.OnReload;
-            @Reload.canceled += instance.OnReload;
-            @Aim.started += instance.OnAim;
-            @Aim.performed += instance.OnAim;
-            @Aim.canceled += instance.OnAim;
-            @Change.started += instance.OnChange;
-            @Change.performed += instance.OnChange;
-            @Change.canceled += instance.OnChange;
         }
 
         private void UnregisterCallbacks(IPlayActions instance)
@@ -855,15 +777,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
-            @Reload.started -= instance.OnReload;
-            @Reload.performed -= instance.OnReload;
-            @Reload.canceled -= instance.OnReload;
-            @Aim.started -= instance.OnAim;
-            @Aim.performed -= instance.OnAim;
-            @Aim.canceled -= instance.OnAim;
-            @Change.started -= instance.OnChange;
-            @Change.performed -= instance.OnChange;
-            @Change.canceled -= instance.OnChange;
         }
 
         public void RemoveCallbacks(IPlayActions instance)
@@ -1110,9 +1023,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
-        void OnReload(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
-        void OnChange(InputAction.CallbackContext context);
     }
     public interface IMiniGameActions
     {
