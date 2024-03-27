@@ -18,6 +18,11 @@ public class FSMBrain : MonoBehaviour
         states.ForEach(i => i.Init(this));
     }
 
+    private void Start()
+    {
+        currentState?.EnterState();
+    }
+
     private void Update()
     {
         currentState?.UpdateState();

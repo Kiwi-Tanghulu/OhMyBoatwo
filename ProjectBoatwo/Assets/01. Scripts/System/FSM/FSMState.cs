@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FSMState : MonoBehaviour
 {
     [SerializeField] bool autoTransitioning = true;
+
+    public UnityEvent OnEnterStateEvent = null;
+    public UnityEvent OnExitStateEvent = null;
 
     private FSMBrain brain;
 
@@ -29,6 +33,8 @@ public class FSMState : MonoBehaviour
 
         if (autoTransitioning)
             transitions.ForEach(i => i.EnterState());
+
+        OnEnterStateEvent?.Invoke();
     }
 
     public void UpdateState()
@@ -55,5 +61,7 @@ public class FSMState : MonoBehaviour
 
         if (autoTransitioning)
             transitions.ForEach(i => i.ExitState());
+
+        OnExitStateEvent?.Invoke();
     }
 }
