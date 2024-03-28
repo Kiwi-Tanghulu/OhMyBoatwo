@@ -17,6 +17,8 @@ public class HumanoidAnimator : MonoBehaviour
     private int upperLayerIndex = 0;
     private int lowerLayerIndex = 0;
 
+    public bool ApplyRootMotion { get => animator.applyRootMotion; set => animator.applyRootMotion = value; }
+
     public event Action OnAnimationStartEvent = null;
     public event Action OnAnimationEvent = null;
     public event Action OnAnimationEndEvent = null;

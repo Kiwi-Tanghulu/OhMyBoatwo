@@ -31,7 +31,8 @@ public class NavMovement : MonoBehaviour
         }
         else
         {
-            navAgent.isStopped = !active;
+            if(navAgent.enabled)
+                navAgent.isStopped = !active;
             navAgent.enabled = active;
         }
 

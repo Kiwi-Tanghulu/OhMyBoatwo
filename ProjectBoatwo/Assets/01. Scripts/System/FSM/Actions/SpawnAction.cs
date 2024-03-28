@@ -22,8 +22,8 @@ public class RisingSpawnAction : FSMAction
         base.EnterState();
 
         // movement.SetActive(false);
-        brain.transform.DOMoveY(
-            brain.transform.position.y + risingDistance, 
+        brain.transform.DOLocalMoveY(
+            brain.transform.localPosition.y + risingDistance, 
             spawningDuration
         )
         .SetEase(risingEase)
