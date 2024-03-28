@@ -8,6 +8,6 @@ public class MegalodonRunAction : MegalodonFSMAction
     {
         base.EnterState();
         Vector3 moveDir = (transform.position - targetShipTrm.position).normalized;
-        brain.Movement.SetMoveDir(moveDir);
+        _brain.Movement.SetMoveDir(moveDir);
     }
 }

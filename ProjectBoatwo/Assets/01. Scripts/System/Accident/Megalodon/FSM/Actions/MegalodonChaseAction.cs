@@ -15,6 +15,6 @@ public class MegalodonChaseAction : MegalodonFSMAction
         moveDir.y = 0;
         moveDir.Normalize();
 
-        brain.Movement.SetMoveDir(moveDir);
+        _brain.Movement.SetMoveDir(moveDir);
     }
 }

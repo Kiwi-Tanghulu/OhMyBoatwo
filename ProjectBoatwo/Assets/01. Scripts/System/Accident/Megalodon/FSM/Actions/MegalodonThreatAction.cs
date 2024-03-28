@@ -22,6 +22,6 @@ public class MegalodonThreatAction : MegalodonFSMAction
         targetPos += Quaternion.Euler(0f, 90f, 0f) * targetPos.normalized;
         Vector3 dir = (targetPos - brainTrm.position).normalized;
         dir.y = 0;
-        brain.Movement.SetMoveDir(dir);
+        _brain.Movement.SetMoveDir(dir);
     }
 }

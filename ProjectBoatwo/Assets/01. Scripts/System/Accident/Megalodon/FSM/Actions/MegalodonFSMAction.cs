@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MegalodonFSMAction : FSMAction
 {
-    protected new MegalodonFSMBrain brain;
+    protected MegalodonFSMBrain _brain;
     protected Transform targetShipTrm;
     protected Transform brainTrm;
 
@@ -16,9 +16,9 @@ public class MegalodonFSMAction : FSMAction
     {
         base.Init(brain, state);
 
-        this.brain = brain as MegalodonFSMBrain;
+        this._brain = brain as MegalodonFSMBrain;
         
-        brainTrm = this.brain.transform;
+        brainTrm = this._brain.transform;
         buoyancy = brain.GetComponent<Buoyancy>();
     }
 
@@ -26,10 +26,10 @@ public class MegalodonFSMAction : FSMAction
     {
         base.EnterState();
 
-        MegalodonStateInfo stateInfo = brain.Info.GetStateInfo(stateType);
+        MegalodonStateInfo stateInfo = _brain.Info.GetStateInfo(stateType);
         if (stateInfo != null)
         {
-            brain.Movement.SetMoveSpeed(stateInfo.MoveSpeed);
+            _brain.Movement.SetMoveSpeed(stateInfo.MoveSpeed);
             buoyancy.SetFloatingOffset(stateInfo.FloatingOffset);
         }
         else
