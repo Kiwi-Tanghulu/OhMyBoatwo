@@ -420,6 +420,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoTransitioning: 1
+  OnEnterStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &361582520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +485,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoTransitioning: 1
+  OnEnterStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &393328056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +550,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoTransitioning: 1
+  OnEnterStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &395679556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +944,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoTransitioning: 1
+  OnEnterStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &781843937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1989,6 +2013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visual: {fileID: 6815030909950776654}
   input: {fileID: 11400000, guid: 88c86053c51125c4e9a130ca7a846d9b, type: 2}
+  cam: {fileID: 1627523734}
   aimRig: {fileID: 1356301413}
   aimDuration: 0.2
 --- !u!1 &1531193111
@@ -2311,6 +2336,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoTransitioning: 1
+  OnEnterStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitStateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1653584531
 MonoBehaviour:
   m_ObjectHideFlags: 0

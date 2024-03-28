@@ -98,6 +98,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed8e570c-4cb5-4558-9438-cb23f7e89f58"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Change"",
+                    ""type"": ""Button"",
+                    ""id"": ""04f44a06-130a-42d7-85c1-ffd0b816f7fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -230,6 +248,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1e01b5a-a91a-4333-be00-2f952f28c7d0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2828ea67-dbbb-44b0-b4f4-96a688d03f30"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -697,6 +737,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Play_Interact = m_Play.FindAction("Interact", throwIfNotFound: true);
         m_Play_Fire = m_Play.FindAction("Fire", throwIfNotFound: true);
         m_Play_Run = m_Play.FindAction("Run", throwIfNotFound: true);
+        m_Play_Aim = m_Play.FindAction("Aim", throwIfNotFound: true);
+        m_Play_Change = m_Play.FindAction("Change", throwIfNotFound: true);
         // MiniGame
         m_MiniGame = asset.FindActionMap("MiniGame", throwIfNotFound: true);
         m_MiniGame_Space = m_MiniGame.FindAction("Space", throwIfNotFound: true);
@@ -788,6 +830,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Play_Interact;
     private readonly InputAction m_Play_Fire;
     private readonly InputAction m_Play_Run;
+    private readonly InputAction m_Play_Aim;
+    private readonly InputAction m_Play_Change;
     public struct PlayActions
     {
         private @Controls m_Wrapper;
@@ -800,6 +844,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Play_Interact;
         public InputAction @Fire => m_Wrapper.m_Play_Fire;
         public InputAction @Run => m_Wrapper.m_Play_Run;
+        public InputAction @Aim => m_Wrapper.m_Play_Aim;
+        public InputAction @Change => m_Wrapper.m_Play_Change;
         public InputActionMap Get() { return m_Wrapper.m_Play; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -833,6 +879,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
+            @Change.started += instance.OnChange;
+            @Change.performed += instance.OnChange;
+            @Change.canceled += instance.OnChange;
         }
 
         private void UnregisterCallbacks(IPlayActions instance)
@@ -861,6 +913,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
+            @Change.started -= instance.OnChange;
+            @Change.performed -= instance.OnChange;
+            @Change.canceled -= instance.OnChange;
         }
 
         public void RemoveCallbacks(IPlayActions instance)
@@ -1139,6 +1197,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
+        void OnChange(InputAction.CallbackContext context);
     }
     public interface IMiniGameActions
     {

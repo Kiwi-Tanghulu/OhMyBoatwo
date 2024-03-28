@@ -14,6 +14,8 @@ public class PlayInputSO : InputSO, IPlayActions
     public Action<bool> OnInteractEvent;
     public Action OnFireEvent;
     public Action <bool>OnRunEvent;
+    public Action<bool> OnAimEvent;
+    public Action OnChangeEvent;
 
     protected override void OnEnable()
     {
@@ -76,5 +78,19 @@ public class PlayInputSO : InputSO, IPlayActions
             OnRunEvent?.Invoke(true);
         else if (context.canceled)
             OnRunEvent?.Invoke(false);
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        if(context.started)
+            OnAimEvent?.Invoke(true);
+        else if(context.canceled)
+            OnAimEvent?.Invoke(false);
+    }
+
+    public void OnChange(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            OnChangeEvent?.Invoke();
     }
 }
