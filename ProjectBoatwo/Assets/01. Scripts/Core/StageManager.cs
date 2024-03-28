@@ -3,7 +3,7 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
 	private static StageManager instance = null;
-    public static StageManager Instace => instance;
+    public static StageManager Instance => instance;
 
     private Stage currentStage = null;
     private float timer = 0f;

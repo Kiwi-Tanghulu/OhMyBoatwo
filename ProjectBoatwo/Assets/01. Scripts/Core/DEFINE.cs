@@ -11,4 +11,13 @@ public static class DEFINE
             return fadeImage;
         }
     }
+
+    private static Transform mainCanvas = null;
+	public static Transform MainCanvas {
+		get {
+			if(mainCanvas == null)
+				mainCanvas = GameObject.Find("MainCanvas")?.transform;
+			return mainCanvas;
+		}
+	}
 }
