@@ -29,7 +29,7 @@ public class StagePoint : MonoBehaviour
         CreateStageButton();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if(infoButton == null)
             return;
