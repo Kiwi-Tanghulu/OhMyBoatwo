@@ -20,8 +20,11 @@ public abstract class TweenSO : ScriptableObject
 	public void PlayTween(Action callback = null)
     {
         sequence = DOTween.Sequence();
-        sequence.OnComplete(HandleTweenCompleted);
-        sequence.OnComplete(() => callback?.Invoke());
+        sequence.OnComplete(() => {
+            HandleTweenCompleted();
+            callback?.Invoke();
+        });
+
         OnTween(sequence);
     }
 

@@ -23,30 +23,9 @@ public class StageInfoPanel : MonoBehaviour
         tweenOption.NegativeOption.Init(transform);
     }
 
-    private void Start()
+    public void Display(bool active)
     {
-        Display(false, true);
-    }
-
-    public void Display(bool active, bool immediately = false)
-    {
-        if(immediately)
-        {
-            gameObject.SetActive(active);
-            return;
-        }
-
-        if(active)
-        {
-            gameObject.SetActive(true);
-            tweenOption.GetOption(true).PlayTween();
-        }
-        else
-        {
-            tweenOption.GetOption(false).PlayTween(() => {
-                gameObject.SetActive(false);
-            });
-        }
+        tweenOption.GetOption(active).PlayTween();
     }
 
     public void Init(StageSO stageData)

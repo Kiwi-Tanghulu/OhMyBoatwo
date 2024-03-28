@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -9,9 +10,14 @@ public class ResultPanel : MonoBehaviour
     [SerializeField] UIInputSO input = null;
 
     [Space(15f)]
+    [SerializeField] OptOption<TweenSO> tweenOption = null;
+
+    [Space(15f)]
 	[SerializeField] ResultSlot resultSlotPrefab = null;
     [SerializeField] PlayableDirector timelineDirector = null;
     [SerializeField] OptOption<TimelineAsset> timelineOption;
+
+    private List<ResultSlot> slots = new List<ResultSlot>();
 
     private Transform container = null;
     private TMP_Text resultText = null;
@@ -22,20 +28,31 @@ public class ResultPanel : MonoBehaviour
         resultText = transform.Find("ResultText").GetComponent<TMP_Text>();
         
         input.OnAnyKeyEvent += HandleNext;
+
+        tweenOption.PositiveOption.Init(transform);
+        tweenOption.PositiveOption.OnTweenCompletedEvent += HandleSlotDisplay;
+        tweenOption.NegativeOption.Init(transform);
+    }
+
+    private void HandleSlotDisplay()
+    {
+        float delay = 0f;
+        slots.ForEach(i => {
+            delay = 0.25f;
+            StartCoroutine(this.DelayCoroutine(delay, () => {
+                i.Display(true, true);
+                i.Display(true);
+            }));
+        });
     }
 
     private void Start()
     {
         InputManager.ChangeInputMap(InputMapType.UI);
-
         Clear();
-        Display(false);
-    }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-            Init(true);
+        Init(true, new PlayerInfo());
+        Display(true);
     }
 
     private void OnDestroy()
@@ -49,7 +66,8 @@ public class ResultPanel : MonoBehaviour
         {
             ResultSlot slot = Instantiate(resultSlotPrefab, container);
             slot.Init(info);
-            slot.Display(true);
+            slot.Display(false, true);
+            slots.Add(slot);
         }
 
         resultText.text = cleared ? "CLEAR" : "FAIL";
@@ -61,15 +79,18 @@ public class ResultPanel : MonoBehaviour
     {
         foreach(Transform slot in container)
             Destroy(slot.gameObject);
+        slots.Clear();
     }
 
     public void Display(bool active)
     {
-        gameObject.SetActive(active);
+        tweenOption.GetOption(active).PlayTween();
     }
 
     private void HandleNext()
     {
-        SceneLoader.LoadSceneAsync("StageScene");
+        tweenOption.GetOption(false).PlayTween(() => {
+            SceneLoader.LoadSceneAsync("StageScene");
+        });
     }
 }
