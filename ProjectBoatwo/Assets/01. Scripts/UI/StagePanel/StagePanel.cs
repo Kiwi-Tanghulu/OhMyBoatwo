@@ -5,9 +5,12 @@ public class StagePanel : MonoBehaviour
 {
     [SerializeField] UIInputSO input = null;
     private StagePoint focusedPoint = null;
+    private StageInfoPanel infoPanel = null;
 
     private void Awake()
     {
+        infoPanel = DEFINE.MainCanvas.Find("StageInfoPanel").GetComponent<StageInfoPanel>();
+        
         input.OnEscapeEvent += HandleEscape;
     }
 
@@ -28,5 +31,7 @@ public class StagePanel : MonoBehaviour
         
         focusedPoint.ReleaseFocus();
         focusedPoint = null;
+
+        infoPanel.Display(false);
     }
 }

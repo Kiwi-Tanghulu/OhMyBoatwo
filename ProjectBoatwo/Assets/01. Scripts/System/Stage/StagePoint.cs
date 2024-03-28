@@ -4,6 +4,9 @@ public class StagePoint : MonoBehaviour
 {
     [SerializeField] Vector3 offset = new Vector3(0f, 10f, 0f);
     [SerializeField] StageInfoButton infoButtonPrefab = null;
+ 
+    [SerializeField] StageSO stageData = null;
+    public StageSO StageData => stageData;
 
     private StageInfoButton infoButton = null;
 	private Transform container = null;
