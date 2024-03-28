@@ -7,6 +7,14 @@ public class MegalodonAttackAction : MegalodonFSMAction
     [SerializeField] DetectTargetParams targetParam = null;
     [SerializeField] AttackTargetParams attackParam = null;
 
+    public override void Init(FSMBrain brain, FSMState state)
+    {
+        base.Init(brain, state);
+
+        targetParam = brain.GetFSMParam<DetectTargetParams>();
+        attackParam = brain.GetFSMParam<AttackTargetParams>();
+    }
+
     public override void EnterState()
     {
         //play attack animation

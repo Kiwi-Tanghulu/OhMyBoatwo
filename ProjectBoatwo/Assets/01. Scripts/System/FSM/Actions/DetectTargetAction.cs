@@ -9,6 +9,7 @@ public class DetectTargetAction : FSMAction
     public override void Init(FSMBrain brain, FSMState state)
     {
         base.Init(brain, state);
+        param = brain.GetFSMParam<DetectTargetParams>();
         container = new Collider[4];
     }
 
