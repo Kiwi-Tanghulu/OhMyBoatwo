@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class Cannon : MonoBehaviour
 {
-    //[SerializeField] private ShipInputSO inputSO;
-
     [Space]
     [SerializeField] private LayerMask targetLayer;
 
@@ -15,35 +13,25 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float firePower;
     [SerializeField] private float fireDelay;
     [SerializeField] private CannonBall cannonBallPrefab;
-    private CannonBall cannonBall;
     private WaitForSeconds wfs;
     private bool canFire;
 
     public UnityEvent<Transform> OnFire;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        cannonBall = Instantiate(cannonBallPrefab, transform);
-        cannonBall.gameObject.SetActive(false);
         canFire = true;
         wfs = new WaitForSeconds(fireDelay);
     }
 
-    private void Update()
-    {
-        //inputSO.OnSpaceEvetnt += Fire;
-        if (Input.GetKeyDown(KeyCode.O))
-            Fire();
-    }
-
-    public void Fire()
+    public virtual void Fire()
     {
         if (!canFire) return;
 
-        cannonBall.gameObject.SetActive(false);
-        cannonBall.transform.position = firePoint.position;
-        cannonBall.Fire(transform.forward * firePower, targetLayer);
-
+        CannonBall ball = PoolManager.Instance.Pop(cannonBallPrefab.name, firePoint.position) as CannonBall;
+        ball.gameObject.SetActive(false);
+        ball.transform.position = firePoint.position;
+        ball.Fire(firePoint.forward * firePower, targetLayer);
         OnFire?.Invoke(firePoint);
     }
 

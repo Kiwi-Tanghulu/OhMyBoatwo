@@ -7,15 +7,22 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth;
     private float currentHealth;
+    public float CurrentHealth => currentHealth;
 
     public UnityEvent<float> onDamaged;
     public UnityEvent<float> onHealed;
     public UnityEvent onDied;
 
-    private void Start()
+    protected virtual void Start()
     {
         currentHealth = maxHealth;
     }
+
+    // private void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.Space))
+    //         OnDamaged(100, null);
+    // }
 
     public void OnDamaged(float damage, Transform attacker)
     {

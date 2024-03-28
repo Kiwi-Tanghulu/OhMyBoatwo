@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    public static Ship Instance;
+    public static Ship Instance { get; private set; }
 
     private List<WaterLeak> leaks;
+    public List<WaterLeak> Leaks => leaks;
 
     private void Awake()
     {
@@ -19,16 +20,13 @@ public class Ship : MonoBehaviour
 
     public void MakeLeak()
     {
-        try
-        {
-            List<WaterLeak> notWorkingLeaks = leaks.FindAll(x => x.isWorking == false);
-            int index = UnityEngine.Random.Range(0, notWorkingLeaks.Count);
+        List<WaterLeak> notWorkingLeaks = leaks.FindAll(x => x.isWorking == false);
 
-            notWorkingLeaks[index].Produce();
-        }
-        catch
-        {
+        if (notWorkingLeaks.Count == 0)
             return;
-        }
+
+        int index = UnityEngine.Random.Range(0, notWorkingLeaks.Count);
+
+        notWorkingLeaks[index].Produce();
     }
 }

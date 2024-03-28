@@ -29507,7 +29507,7 @@ MonoBehaviour:
   waterPrefab: {fileID: 5917291695925242877, guid: 63fcf00bafd33894daf8c6d6b2e78b00,
     type: 3}
   samplingCount: 3
-  waveCount: 4
+  waveCount: 3
   waterSize: {x: 100, y: 0, z: 100}
   waterCount: {x: 24, y: 24}
   generateOcenaOnAwake: 0

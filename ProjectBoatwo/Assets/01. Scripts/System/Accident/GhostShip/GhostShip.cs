@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -27,9 +28,12 @@ public class GhostShip : Accident
 
     private bool completeAppear;
 
+    private MeshCollider col;
+
     public override void InitAccident()
     {
         anim = GetComponent<Animator>();
+        col = GetComponent<MeshCollider>();
 
         cannons = transform.Find("Cannons").GetComponentsInChildren<Cannon>();
         cannonIndices = new int[cannons.Length];
@@ -47,17 +51,13 @@ public class GhostShip : Accident
 
         Appear(true);
 
+        col.enabled = false;
         cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
         currentCannonfireDelay = 0f;
     }
 
     public override void UpdateAccident()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            Appear(true);
-        if (Input.GetKeyDown(KeyCode.D))
-            Appear(false);
-
         Chase();
 
         if(completeAppear)
@@ -70,15 +70,15 @@ public class GhostShip : Accident
 
     public override void EndAccident()
     {
-        base.EndAccident();
-
+        AccidentManager.Instance.EndAccident(this);
+        isActive = false;
+        completeAppear = false;
+        col.enabled = false;
         Appear(false);
     }
 
     public void Appear(bool value)
     {
-        Debug.Log(anim);
-
         if(value)
             anim.SetTrigger(appearHash);
         else
@@ -120,6 +120,15 @@ public class GhostShip : Accident
         transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
     }
 
-    public void CompleteAppear() => completeAppear = true;//animation method
-    public void CompleteDisappear() => completeAppear = false;//animation method
+    #region animation methods
+    public void EndAppear()
+    {
+        completeAppear = true;
+        col.enabled = true;
+    }
+    public void EndDisappear()
+    {
+        gameObject.SetActive(false);
+    }
+    #endregion
 }

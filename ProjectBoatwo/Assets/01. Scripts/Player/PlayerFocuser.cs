@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerFocuser : MonoBehaviour
 {
@@ -24,13 +25,13 @@ public class PlayerFocuser : MonoBehaviour
         Vector3 point = eyeTranform.position + eyeTranform.forward * distance;
 
         bool rayResult = Physics.Raycast(eyeTranform.position, eyeTranform.forward, out RaycastHit hit, distance, focusingLayer);
-        if(rayResult)
+        if (rayResult)
         {
             hit.collider.TryGetComponent<IFocusable>(out other);
             point = hit.point;
         }
 
-        if(focusedObject != other)
+        if (focusedObject != other)
             FocusObject(other, point);
 
         FocusedPoint = point;
@@ -43,26 +44,26 @@ public class PlayerFocuser : MonoBehaviour
         focusedObject?.OnFocusBegin(point);
     }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [Space(15f)]
     [SerializeField] bool gizmo = false;
 
     private void OnDrawGizmos()
     {
-        if(gizmo == false)
+        if (gizmo == false)
             return;
 
-        if(eyeTranform == null)
+        if (eyeTranform == null)
             return;
 
         Vector3 start = eyeTranform.position;
         Vector3 end = eyeTranform.position + eyeTranform.forward * distance;
-        if(Physics.Raycast(eyeTranform.position, eyeTranform.forward, out RaycastHit hit, distance, focusingLayer))
+        if (Physics.Raycast(eyeTranform.position, eyeTranform.forward, out RaycastHit hit, distance, focusingLayer))
             end = hit.point;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(start, end);
         Gizmos.DrawWireSphere(end, 0.05f);
     }
-    #endif
+#endif
 }

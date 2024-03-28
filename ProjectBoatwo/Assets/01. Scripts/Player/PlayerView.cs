@@ -17,10 +17,17 @@ public class PlayerView : MonoBehaviour
 
     private float cameraAngle;
 
+    private bool isActive;
+
     private void Awake()
     {
         input.OnMouseDeltaEvent += PlayerRotate;
         input.OnMouseDeltaEvent += CameraRotate;
+    }
+
+    private void Start()
+    {
+        isActive = true;
     }
 
     private void OnDestroy()
@@ -31,6 +38,9 @@ public class PlayerView : MonoBehaviour
 
     private void PlayerRotate(Vector2 mouseDelta)
     {
+        if (!isActive)
+            return;
+
         float rotateValue = mouseDelta.x * rotateSpeed;
 
         if (inverseX)
@@ -41,6 +51,9 @@ public class PlayerView : MonoBehaviour
 
     private void CameraRotate(Vector2 mouseDelta)
     {
+        if (!isActive)
+            return;
+
         float rotateValue = mouseDelta.y * rotateSpeed;
 
         if (inverseY)
@@ -49,5 +62,10 @@ public class PlayerView : MonoBehaviour
         cameraAngle = Mathf.Clamp(cameraAngle, minY, maxY);
 
         playerCam.transform.localRotation = Quaternion.Euler(cameraAngle, 0f, 0f);
+    }
+
+    public void SetActive(bool value)
+    {
+        isActive = value;
     }
 }

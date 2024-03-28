@@ -194,6 +194,9 @@ public class Buoyancy : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angle), Time.deltaTime * floatingPower);
     }
 
+    public void SetFloatingOffset(float value)
+    {
+        DOTween.To(() => floatingOffset, x => floatingOffset = x, value, 1f);
+    }
     public void SetFloatingPower(float value) => floatingPower = value;
-    public void SetFloatingOffset(float value) => floatingOffset = value;
 }

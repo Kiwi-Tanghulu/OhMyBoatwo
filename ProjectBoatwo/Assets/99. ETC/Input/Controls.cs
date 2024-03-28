@@ -98,33 +98,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reload"",
-                    ""type"": ""Button"",
-                    ""id"": ""feb910a9-ef9c-4bb0-80ed-bc5d5dbe210c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Aim"",
-                    ""type"": ""Button"",
-                    ""id"": ""ebf32aae-165c-4f09-a8b6-bf077d8592b7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Change"",
-                    ""type"": ""Button"",
-                    ""id"": ""d01885b2-691e-4bc5-8f2d-bd30f1753770"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -257,39 +230,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b7ced9cc-28df-4b05-b06e-fad6b87fb347"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reload"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8646beab-9fc5-46d6-afeb-9acc0517014f"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2fe68762-48af-4ce7-b51a-237df8dc56bd"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -429,6 +369,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseLeftDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbb51154-b516-4d01-bb0e-525730187042"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -596,6 +545,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""MouseDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cbb8bd0-a090-48ca-813c-4f65d86492d2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseLeftDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -620,6 +580,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""10895c4f-566e-49ac-8701-5e63cf819801"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7550ec9-35f1-4c07-850d-f67af5d601ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""75ae8577-106f-4fe0-9fd3-d00cc0dae4b7"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -642,6 +629,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc5eafb0-463b-47a5-96a0-5e48c7ddb90d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30f506a5-7c82-458a-9233-c13f3fdae256"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""392ed9fc-65c6-45be-82d1-7c033e00d105"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -677,9 +697,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Play_Interact = m_Play.FindAction("Interact", throwIfNotFound: true);
         m_Play_Fire = m_Play.FindAction("Fire", throwIfNotFound: true);
         m_Play_Run = m_Play.FindAction("Run", throwIfNotFound: true);
-        m_Play_Reload = m_Play.FindAction("Reload", throwIfNotFound: true);
-        m_Play_Aim = m_Play.FindAction("Aim", throwIfNotFound: true);
-        m_Play_Change = m_Play.FindAction("Change", throwIfNotFound: true);
         // MiniGame
         m_MiniGame = asset.FindActionMap("MiniGame", throwIfNotFound: true);
         m_MiniGame_Space = m_MiniGame.FindAction("Space", throwIfNotFound: true);
@@ -694,10 +711,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Ship_Space = m_Ship.FindAction("Space", throwIfNotFound: true);
         m_Ship_M = m_Ship.FindAction("M", throwIfNotFound: true);
         m_Ship_MouseDelta = m_Ship.FindAction("MouseDelta", throwIfNotFound: true);
+        m_Ship_MouseLeftDown = m_Ship.FindAction("MouseLeftDown", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
         m_UI_Scroll = m_UI.FindAction("Scroll", throwIfNotFound: true);
+        m_UI_LeftClick = m_UI.FindAction("LeftClick", throwIfNotFound: true);
+        m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
+        m_UI_MouseDelta = m_UI.FindAction("MouseDelta", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -767,9 +788,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Play_Interact;
     private readonly InputAction m_Play_Fire;
     private readonly InputAction m_Play_Run;
-    private readonly InputAction m_Play_Reload;
-    private readonly InputAction m_Play_Aim;
-    private readonly InputAction m_Play_Change;
     public struct PlayActions
     {
         private @Controls m_Wrapper;
@@ -782,9 +800,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Play_Interact;
         public InputAction @Fire => m_Wrapper.m_Play_Fire;
         public InputAction @Run => m_Wrapper.m_Play_Run;
-        public InputAction @Reload => m_Wrapper.m_Play_Reload;
-        public InputAction @Aim => m_Wrapper.m_Play_Aim;
-        public InputAction @Change => m_Wrapper.m_Play_Change;
         public InputActionMap Get() { return m_Wrapper.m_Play; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -818,15 +833,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
-            @Reload.started += instance.OnReload;
-            @Reload.performed += instance.OnReload;
-            @Reload.canceled += instance.OnReload;
-            @Aim.started += instance.OnAim;
-            @Aim.performed += instance.OnAim;
-            @Aim.canceled += instance.OnAim;
-            @Change.started += instance.OnChange;
-            @Change.performed += instance.OnChange;
-            @Change.canceled += instance.OnChange;
         }
 
         private void UnregisterCallbacks(IPlayActions instance)
@@ -855,15 +861,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
-            @Reload.started -= instance.OnReload;
-            @Reload.performed -= instance.OnReload;
-            @Reload.canceled -= instance.OnReload;
-            @Aim.started -= instance.OnAim;
-            @Aim.performed -= instance.OnAim;
-            @Aim.canceled -= instance.OnAim;
-            @Change.started -= instance.OnChange;
-            @Change.performed -= instance.OnChange;
-            @Change.canceled -= instance.OnChange;
         }
 
         public void RemoveCallbacks(IPlayActions instance)
@@ -954,6 +951,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Ship_Space;
     private readonly InputAction m_Ship_M;
     private readonly InputAction m_Ship_MouseDelta;
+    private readonly InputAction m_Ship_MouseLeftDown;
     public struct ShipActions
     {
         private @Controls m_Wrapper;
@@ -965,6 +963,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Space => m_Wrapper.m_Ship_Space;
         public InputAction @M => m_Wrapper.m_Ship_M;
         public InputAction @MouseDelta => m_Wrapper.m_Ship_MouseDelta;
+        public InputAction @MouseLeftDown => m_Wrapper.m_Ship_MouseLeftDown;
         public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -995,6 +994,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseDelta.started += instance.OnMouseDelta;
             @MouseDelta.performed += instance.OnMouseDelta;
             @MouseDelta.canceled += instance.OnMouseDelta;
+            @MouseLeftDown.started += instance.OnMouseLeftDown;
+            @MouseLeftDown.performed += instance.OnMouseLeftDown;
+            @MouseLeftDown.canceled += instance.OnMouseLeftDown;
         }
 
         private void UnregisterCallbacks(IShipActions instance)
@@ -1020,6 +1022,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseDelta.started -= instance.OnMouseDelta;
             @MouseDelta.performed -= instance.OnMouseDelta;
             @MouseDelta.canceled -= instance.OnMouseDelta;
+            @MouseLeftDown.started -= instance.OnMouseLeftDown;
+            @MouseLeftDown.performed -= instance.OnMouseLeftDown;
+            @MouseLeftDown.canceled -= instance.OnMouseLeftDown;
         }
 
         public void RemoveCallbacks(IShipActions instance)
@@ -1043,12 +1048,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Escape;
     private readonly InputAction m_UI_Scroll;
+    private readonly InputAction m_UI_LeftClick;
+    private readonly InputAction m_UI_RightClick;
+    private readonly InputAction m_UI_MouseDelta;
     public struct UIActions
     {
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Escape => m_Wrapper.m_UI_Escape;
         public InputAction @Scroll => m_Wrapper.m_UI_Scroll;
+        public InputAction @LeftClick => m_Wrapper.m_UI_LeftClick;
+        public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
+        public InputAction @MouseDelta => m_Wrapper.m_UI_MouseDelta;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1064,6 +1075,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Scroll.started += instance.OnScroll;
             @Scroll.performed += instance.OnScroll;
             @Scroll.canceled += instance.OnScroll;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
+            @RightClick.started += instance.OnRightClick;
+            @RightClick.performed += instance.OnRightClick;
+            @RightClick.canceled += instance.OnRightClick;
+            @MouseDelta.started += instance.OnMouseDelta;
+            @MouseDelta.performed += instance.OnMouseDelta;
+            @MouseDelta.canceled += instance.OnMouseDelta;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1074,6 +1094,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Scroll.started -= instance.OnScroll;
             @Scroll.performed -= instance.OnScroll;
             @Scroll.canceled -= instance.OnScroll;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
+            @RightClick.started -= instance.OnRightClick;
+            @RightClick.performed -= instance.OnRightClick;
+            @RightClick.canceled -= instance.OnRightClick;
+            @MouseDelta.started -= instance.OnMouseDelta;
+            @MouseDelta.performed -= instance.OnMouseDelta;
+            @MouseDelta.canceled -= instance.OnMouseDelta;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1110,9 +1139,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
-        void OnReload(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
-        void OnChange(InputAction.CallbackContext context);
     }
     public interface IMiniGameActions
     {
@@ -1129,10 +1155,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnSpace(InputAction.CallbackContext context);
         void OnM(InputAction.CallbackContext context);
         void OnMouseDelta(InputAction.CallbackContext context);
+        void OnMouseLeftDown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnEscape(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
+        void OnMouseDelta(InputAction.CallbackContext context);
     }
 }

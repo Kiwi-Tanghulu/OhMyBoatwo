@@ -15,6 +15,9 @@ TagManager:
   - Ground
   - 
   - Ship
+  - Monster
+  - FocusObject
+  - Player
   - 
   - 
   - 
