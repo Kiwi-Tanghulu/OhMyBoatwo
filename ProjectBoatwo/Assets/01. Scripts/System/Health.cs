@@ -7,6 +7,7 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth;
     private float currentHealth;
+    public float CurrentHealth => currentHealth;
 
     public UnityEvent<float> onDamaged;
     public UnityEvent<float> onHealed;
