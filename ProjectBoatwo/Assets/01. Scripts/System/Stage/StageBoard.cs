@@ -39,6 +39,13 @@ public class StageBoard : MonoBehaviour
         followTarget.position += factor * Time.fixedDeltaTime;
     }
 
+    private void OnDestroy()
+    {
+        input.OnRightClickEevnt -= HandleRightClick;
+        input.OnScrollEvent -= HandleScroll;
+        input.OnEscapeEvent -= HandleEscape;
+    }
+
     private void HandleRightClick(bool click)
     {
         isHold = click;

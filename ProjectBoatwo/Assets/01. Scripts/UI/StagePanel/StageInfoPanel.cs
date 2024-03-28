@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageInfoPanel : MonoBehaviour
 {
@@ -17,10 +18,14 @@ public class StageInfoPanel : MonoBehaviour
     public void Init(StageSO stageData)
     {
         // something;
+        currentStage = stageData;
     }
 
     public void HandleStartStage()
     {
         Debug.Log("Start Stage");
+        SceneLoader.LoadSceneAsync("GameScene", () => {
+            StageManager.Instance.CreateStage(currentStage);
+        });
     }
 }
