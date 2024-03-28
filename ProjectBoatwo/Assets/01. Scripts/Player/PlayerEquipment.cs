@@ -12,6 +12,7 @@ public class PlayerEquipment : MonoBehaviour
     private Equipment currentEquipment;
     private Equipment nextEquipment;
 
+    [SerializeField] private Rig playerHandRig;
     [SerializeField] private Rig mainEquipmentRig;
     [SerializeField] private Rig subEquipmentRig;
 
@@ -31,8 +32,11 @@ public class PlayerEquipment : MonoBehaviour
         nextEquipmentRig = subEquipmentRig;
         isChange = false;
 
+        playerHandRig.weight = 1f;
         currentEquipmentRig.weight = 1f;
         nextEquipmentRig.weight = 0f;
+
+        mainEquipment.EnterItem();
     }
 
     private void OnDestroy()
@@ -50,10 +54,10 @@ public class PlayerEquipment : MonoBehaviour
         isChange = true;
         while (true)
         {
-            currentEquipmentRig.weight -= Time.deltaTime / weaponChangeDuration;
-            if(currentEquipmentRig.weight <= 0.02f)
+            playerHandRig.weight -= Time.deltaTime / weaponChangeDuration;
+            if(playerHandRig.weight <= 0.02f)
             {
-                currentEquipmentRig.weight = 0f;
+                playerHandRig.weight = 0f;
                 break;
             }
             yield return null;
@@ -61,16 +65,16 @@ public class PlayerEquipment : MonoBehaviour
 
         while (true)
         {
-            nextEquipmentRig.weight += Time.deltaTime / weaponChangeDuration;
-            if(nextEquipmentRig.weight >= 0.98f)
+            playerHandRig.weight += Time.deltaTime / weaponChangeDuration;
+            if(playerHandRig.weight >= 0.98f)
             {
-                nextEquipmentRig.weight = 1f;
+                playerHandRig.weight = 1f;
                 break;
             }
             yield return null;
         }
 
-        SwapEquipment();
+        //SwapEquipment();
 
         isChange = false;
     }

@@ -28,7 +28,6 @@ public class PlayerAnimatorAction : FSMAction
     {
         base.UpdateState();
         animator.SetFloat(speedHash, playerMovement.CurrentSpeed);
-        Debug.Log(animator.GetBool(animBoolHash));
     }
 
     public override void ExitState()

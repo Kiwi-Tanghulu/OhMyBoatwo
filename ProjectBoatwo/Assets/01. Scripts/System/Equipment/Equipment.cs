@@ -5,7 +5,15 @@ using UnityEngine.Events;
 
 public abstract class Equipment : MonoBehaviour
 {
-    public abstract void EnterItem();
-    public abstract void ExitItem();
+    [SerializeField] protected Transform visual;
+    [SerializeField] protected PlayInputSO input;
+    public virtual void EnterItem()
+    {
+        visual.gameObject.SetActive(true);
+    }
+    public virtual void ExitItem()
+    {
+        visual.gameObject.SetActive(false);
+    }
 
 }
