@@ -11,6 +11,11 @@ public class MegalodonMovement : MonoBehaviour
 
     private Vector3 moveDir;
 
+    private void Update()
+    {
+        Move();
+    }
+
     public void Move()
     {
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -31,5 +36,10 @@ public class MegalodonMovement : MonoBehaviour
         {
             Debug.LogError($"do not rotate this vector : {dir}");
         }
+    }
+
+    public void SetMoveSpeed(float value)
+    {
+        moveSpeed = value;
     }
 }

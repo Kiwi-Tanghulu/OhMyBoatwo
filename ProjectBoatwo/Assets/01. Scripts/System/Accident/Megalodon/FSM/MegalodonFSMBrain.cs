@@ -9,13 +9,13 @@ public class MegalodonFSMBrain : FSMBrain
 
     public MegalodonMovement Movement { get; private set; }
 
-    public Ship targetShip { get; private set; }
+    [SerializeField] private Ship targetShip;
+    public Ship TargetShip => targetShip;
 
     protected override void Awake()
     {
-        targetShip = Ship.Instance;
         Movement = GetComponent<MegalodonMovement>();
-        
+
         base.Awake();
     }
 }

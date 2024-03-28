@@ -13,7 +13,9 @@ public class MegalodonFSMAction : FSMAction
         base.Init(brain, state);
 
         this.brain = brain as MegalodonFSMBrain;
-        targetShipTrm = this.brain.targetShip.transform;
+        Debug.Log(this.brain);
+        Debug.Log(this.brain.TargetShip);
+        targetShipTrm = this.brain.TargetShip.transform;
         brainTrm = this.brain.transform;
     }
 }

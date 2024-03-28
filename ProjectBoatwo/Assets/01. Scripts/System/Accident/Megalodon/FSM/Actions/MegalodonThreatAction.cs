@@ -5,12 +5,20 @@ using UnityEngine;
 public class MegalodonThreatAction : MegalodonFSMAction
 {
     private float threatDistance;
+    [SerializeField] private DetectTargetParams detectTargetParams;
 
     public override void Init(FSMBrain brain, FSMState state)
     {
         base.Init(brain, state);
 
-        threatDistance = base.brain.Info.threatDistance;
+        threatDistance = detectTargetParams.Radius;
+    }
+
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        brain.Movement.SetMoveSpeed(brain.Info.threatSpeed);
     }
 
     public override void UpdateState()

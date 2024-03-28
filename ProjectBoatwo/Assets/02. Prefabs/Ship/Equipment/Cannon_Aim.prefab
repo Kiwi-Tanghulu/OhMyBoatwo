@@ -35,6 +35,7 @@ Transform:
   - {fileID: 3317026664232757861}
   - {fileID: 5318466340209308369}
   - {fileID: 3195374244743230005}
+  - {fileID: 4940122977880097527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1806996499630314019
@@ -74,10 +75,11 @@ MonoBehaviour:
         m_CallState: 2
   input: {fileID: 11400000, guid: 0c92c87ef140e4f4dbffe01b8aba6567, type: 2}
   muzzleTrm: {fileID: 4002884447720150798}
+  playerStandingPoint: {fileID: 4940122977880097527}
   vCam: {fileID: 1208251773920733647}
   maxRotate: {x: -2, y: 30}
   minRotate: {x: -30, y: -30}
-  rotateSpeed: 10
+  rotateSpeed: 20
 --- !u!95 &4428410778824254705
 Animator:
   serializedVersion: 5
@@ -120,6 +122,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.9584522, z: 2.0240476}
   m_Center: {x: -8.719755e-16, y: 0.48825598, z: 0.18864012}
+--- !u!1 &3454103025557032946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4940122977880097527}
+  m_Layer: 0
+  m_Name: PlayerStandingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4940122977880097527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454103025557032946}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5474780527905278024}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4328121483608051110
 GameObject:
   m_ObjectHideFlags: 0

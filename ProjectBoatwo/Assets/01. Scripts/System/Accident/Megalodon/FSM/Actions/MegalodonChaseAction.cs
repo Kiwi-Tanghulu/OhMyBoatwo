@@ -6,6 +6,13 @@ public class MegalodonChaseAction : MegalodonFSMAction
 {
     private Vector3 moveDir;
 
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        brain.Movement.SetMoveSpeed(brain.Info.chaseSpeed);
+    }
+
     public override void UpdateState()
     {
         base.UpdateState();

@@ -8,8 +8,11 @@ public class AimCannon : Cannon, IFocusable, IInteractable
 {
     [SerializeField] private ShipInputSO input;
 
+    [Space]
     [SerializeField] private Transform muzzleTrm;
+    [SerializeField] private Transform playerStandingPoint;
 
+    [Space]
     [SerializeField] private CinemachineVirtualCamera vCam;
 
     [Space]
@@ -101,6 +104,8 @@ public class AimCannon : Cannon, IFocusable, IInteractable
          
         InputManager.ChangeInputMap(InputMapType.Ship);
         vCam.Priority = int.MaxValue;
+        performer.transform.position = playerStandingPoint.position;
+        //performer.transform.LookAt(transform.forward);
         selected = true;
         return true;
     }
