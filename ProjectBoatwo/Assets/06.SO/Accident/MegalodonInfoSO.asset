@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a7dd7a331ff0440ab25afa9b351788, type: 3}
   m_Name: MegalodonInfoSO
   m_EditorClassIdentifier: 
-  chaseSpeed: 20
-  threatSpeed: 20
-  approachSpeed: 30
-  runSpeed: 20
+  MegalodonStateInfoList:
+  - stateType: 0
+    MoveSpeed: 15
+    FloatingOffset: -10
+  - stateType: 1
+    MoveSpeed: 20
+    FloatingOffset: -3
+  - stateType: 2
+    MoveSpeed: 30
+    FloatingOffset: 0
+  - stateType: 3
+    MoveSpeed: 30
+    FloatingOffset: 3
+  - stateType: 4
+    MoveSpeed: 15
+    FloatingOffset: -10

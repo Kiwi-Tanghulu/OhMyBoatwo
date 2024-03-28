@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class MegalodonFSMBrain : FSMBrain
 {
-    [SerializeField] private MegalodonInfoSO info;
-    public MegalodonInfoSO Info => info;
+    [SerializeField] private MegalodonInfoListSO info;
+    public MegalodonInfoListSO Info => info;
 
     public MegalodonMovement Movement { get; private set; }
-
-    [SerializeField] private Ship targetShip;
-    public Ship TargetShip => targetShip;
 
     protected override void Awake()
     {

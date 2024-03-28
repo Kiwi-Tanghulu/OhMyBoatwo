@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124c2912524c3944ab26eaf028e3daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateType: 3
   targetParam: {fileID: 11400000, guid: 26afd5df32579d840857a13c8d69b906, type: 2}
   attackParam: {fileID: 11400000, guid: df53d8e82990788439e4452cbcea3c05, type: 2}
 --- !u!1 &124169643
@@ -543,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b20982643f13548880a182959e14e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateType: 2
 --- !u!114 &125282447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1644,6 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e6c8f36ff125d4babe788ecf519482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateType: 4
 --- !u!4 &556242607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8878473177426036637, guid: 002738cf1cdb0e44bba2f9f908b387ed,
@@ -1741,6 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b20982643f13548880a182959e14e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateType: 0
 --- !u!1 &626415436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,7 +4253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1333407115
 Transform:
   m_ObjectHideFlags: 0
@@ -7662,7 +7666,7 @@ MonoBehaviour:
   backFloatingPoint: {fileID: 1244023208}
   leftFloatingPoint: {fileID: 662363835}
   rightFloatingPoint: {fileID: 1039477162}
-  floatingOffset: -3
+  floatingOffset: 0
 --- !u!114 &1688886722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7728,7 +7732,6 @@ MonoBehaviour:
       m_Calls: []
   currentState: {fileID: 603346165}
   info: {fileID: 11400000, guid: 1b23df697657f954fbd5e544c03c8b9e, type: 2}
-  targetShip: {fileID: 2112747554}
 --- !u!4 &1688886725
 Transform:
   m_ObjectHideFlags: 0
@@ -7834,6 +7837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06462a2ba3267f7418aedeabd3ca5583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateType: 1
   detectTargetParams: {fileID: 11400000, guid: 26afd5df32579d840857a13c8d69b906, type: 2}
 --- !u!1 &1706961646
 GameObject:
@@ -8484,7 +8488,7 @@ MonoBehaviour:
   backFloatingPoint: {fileID: 124169644}
   leftFloatingPoint: {fileID: 133350885}
   rightFloatingPoint: {fileID: 1837064952}
-  floatingOffset: -1.3
+  floatingOffset: 0
 --- !u!114 &2112747554
 MonoBehaviour:
   m_ObjectHideFlags: 0

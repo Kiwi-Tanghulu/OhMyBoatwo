@@ -105,7 +105,7 @@ public class AimCannon : Cannon, IFocusable, IInteractable
         InputManager.ChangeInputMap(InputMapType.Ship);
         vCam.Priority = int.MaxValue;
         performer.transform.position = playerStandingPoint.position;
-        //performer.transform.LookAt(transform.forward);
+        //sperformer.transform.LookAt(transform.forward);
         selected = true;
         return true;
     }

@@ -14,13 +14,6 @@ public class MegalodonThreatAction : MegalodonFSMAction
         threatDistance = detectTargetParams.Radius;
     }
 
-    public override void EnterState()
-    {
-        base.EnterState();
-
-        brain.Movement.SetMoveSpeed(brain.Info.threatSpeed);
-    }
-
     public override void UpdateState()
     {
         base.UpdateState();
