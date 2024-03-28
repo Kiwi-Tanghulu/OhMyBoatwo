@@ -11,6 +11,7 @@ public class MegalodonThreatAction : MegalodonFSMAction
     {
         base.Init(brain, state);
 
+        detectTargetParams = brain.GetFSMParam<DetectTargetParams>();
         threatDistance = detectTargetParams.Radius;
     }
 

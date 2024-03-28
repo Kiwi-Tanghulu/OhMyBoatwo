@@ -1345,6 +1345,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentState: {fileID: 857853669644909777}
+  fsmParams:
+  - {fileID: 11400000, guid: df53d8e82990788439e4452cbcea3c05, type: 2}
+  - {fileID: 11400000, guid: 26afd5df32579d840857a13c8d69b906, type: 2}
   info: {fileID: 11400000, guid: 1b23df697657f954fbd5e544c03c8b9e, type: 2}
 --- !u!114 &5780822435054827127
 MonoBehaviour:

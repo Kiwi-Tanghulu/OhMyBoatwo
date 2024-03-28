@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/FSMParams/AttackTarget")]
-public class AttackTargetParams : ScriptableObject
+public class AttackTargetParams : FSMParamSO
 {
 	public float AttackRange = 1f;
     public float AttackCooldown = 0.5f;

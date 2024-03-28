@@ -16,6 +16,9 @@ public class AttackTargetAction : FSMAction
         base.Init(brain, state);
         animator = brain.transform.Find("Visual").GetComponent<HumanoidAnimator>();
         movement = brain.GetComponent<NavMovement>();
+
+        targetParam = brain.GetFSMParam<DetectTargetParams>();
+        attackParam = brain.GetFSMParam<AttackTargetParams>();
     }
 
     public override void EnterState()
