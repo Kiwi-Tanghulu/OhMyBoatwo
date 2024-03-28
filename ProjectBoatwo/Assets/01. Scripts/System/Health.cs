@@ -18,6 +18,12 @@ public class Health : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
     }
 
+    // private void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.Space))
+    //         OnDamaged(100, null);
+    // }
+
     public void OnDamaged(float damage, Transform attacker)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0f);
