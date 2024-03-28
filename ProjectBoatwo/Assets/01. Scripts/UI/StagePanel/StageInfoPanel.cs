@@ -1,9 +1,12 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StageInfoPanel : MonoBehaviour
 {
+    [SerializeField] OptOption<TweenSO> tweenOption = null;
+
     private StageSO currentStageData = null;
 
     private Image stageImage = null;
@@ -14,17 +17,36 @@ public class StageInfoPanel : MonoBehaviour
     {
         stageImage = transform.Find("TopPanel/StageImage").GetComponent<Image>();
         nameText = transform.Find("TopPanel/NameField/StageNameText").GetComponent<TMP_Text>();
-        starSlots = transform.Find("StarPanel").GetComponentsInChildren<StageStarSlot>();
+        starSlots = transform.Find("StarPanel").GetComponentsInChildren<StageStarSlot>(true);
+
+        tweenOption.PositiveOption.Init(transform);
+        tweenOption.NegativeOption.Init(transform);
     }
 
     private void Start()
     {
-        Display(false);
+        Display(false, true);
     }
 
-    public void Display(bool active)
+    public void Display(bool active, bool immediately = false)
     {
-        gameObject.SetActive(active);
+        if(immediately)
+        {
+            gameObject.SetActive(active);
+            return;
+        }
+
+        if(active)
+        {
+            gameObject.SetActive(true);
+            tweenOption.GetOption(true).PlayTween();
+        }
+        else
+        {
+            tweenOption.GetOption(false).PlayTween(() => {
+                gameObject.SetActive(false);
+            });
+        }
     }
 
     public void Init(StageSO stageData)
@@ -41,8 +63,10 @@ public class StageInfoPanel : MonoBehaviour
     public void HandleStartStage()
     {
         Debug.Log("Start Stage");
-        SceneLoader.LoadSceneAsync("GameScene", () => {
-            StageManager.Instance.CreateStage(currentStageData);
+        tweenOption.NegativeOption.PlayTween(() => {
+            SceneLoader.LoadSceneAsync("GameScene", () => {
+                StageManager.Instance.CreateStage(currentStageData);
+            });
         });
     }
 }

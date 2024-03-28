@@ -1,5 +1,5 @@
 [System.Serializable]
-public struct OptOption<T>
+public class OptOption<T>
 {
 	public T PositiveOption;
     public T NegativeOption;
