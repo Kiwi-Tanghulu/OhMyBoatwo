@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StageInfoPanel : MonoBehaviour
 {
-    [SerializeField] OptOption<TweenSO> tweenOption = null;
+    [SerializeField] TweenOptOption tweenOption = null;
 
     private StageSO currentStageData = null;
 
@@ -19,8 +19,7 @@ public class StageInfoPanel : MonoBehaviour
         nameText = transform.Find("TopPanel/NameField/StageNameText").GetComponent<TMP_Text>();
         starSlots = transform.Find("StarPanel").GetComponentsInChildren<StageStarSlot>(true);
 
-        tweenOption.PositiveOption.Init(transform);
-        tweenOption.NegativeOption.Init(transform);
+        tweenOption.Init(transform);
     }
 
     public void Display(bool active)

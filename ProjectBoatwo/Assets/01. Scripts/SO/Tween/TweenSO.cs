@@ -12,9 +12,12 @@ public abstract class TweenSO : ScriptableObject
 
     public event Action OnTweenCompletedEvent = null;
 
-    public virtual void Init(Transform body)
+    public virtual TweenSO CreateInstance(Transform body)
     {
-        this.body = body;
+        TweenSO instance = ScriptableObject.Instantiate(this);
+        instance.body = body;
+        
+        return instance;
     }
 
 	public void PlayTween(Action callback = null)

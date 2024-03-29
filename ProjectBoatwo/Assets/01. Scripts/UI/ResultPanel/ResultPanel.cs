@@ -10,7 +10,7 @@ public class ResultPanel : MonoBehaviour
     [SerializeField] UIInputSO input = null;
 
     [Space(15f)]
-    [SerializeField] OptOption<TweenSO> tweenOption = null;
+    [SerializeField] TweenOptOption tweenOption = null;
 
     [Space(15f)]
 	[SerializeField] ResultSlot resultSlotPrefab = null;
@@ -29,9 +29,8 @@ public class ResultPanel : MonoBehaviour
         
         input.OnAnyKeyEvent += HandleNext;
 
-        tweenOption.PositiveOption.Init(transform);
+        tweenOption.Init(transform);
         tweenOption.PositiveOption.OnTweenCompletedEvent += HandleSlotDisplay;
-        tweenOption.NegativeOption.Init(transform);
     }
 
     private void HandleSlotDisplay()

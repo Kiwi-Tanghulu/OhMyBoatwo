@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public partial class ResultSlot : MonoBehaviour
 {
-    [SerializeField] OptOption<TweenSO> tweenOption = null;
+    [SerializeField] TweenOptOption tweenOption = null;
 
     private TMP_Text nameText = null;
     private TMP_Text contentText = null;
@@ -16,8 +16,7 @@ public partial class ResultSlot : MonoBehaviour
         contentText = transform.Find("ContentPanel/ContentText").GetComponent<TMP_Text>();
         characterImage = transform.Find("CharacterImage").GetComponent<RawImage>();
 
-        tweenOption.PositiveOption.Init(transform);
-        tweenOption.NegativeOption.Init(transform);
+        tweenOption.Init(transform);
     }
 
 	public void Init(PlayerInfo info)
