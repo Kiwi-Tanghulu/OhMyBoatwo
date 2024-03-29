@@ -48,14 +48,14 @@ Material:
     - _GlowDistance: 1
     - _GlowPower: -0.1
     - _GlowSpread: 12
-    - _MainColorIntensity: 350
+    - _MainColorIntensity: 252.9
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _FresnelColor: {r: 0.14989707, g: 1.0592737, b: 0.45039868, a: 1}
     - _GlowColor: {r: 1.9043759, g: 0.7294118, b: 0.7294118, a: 1}
     - _GlowOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _MainColor: {r: 0.11741542, g: 0.2603773, b: 0.2273861, a: 1}
+    - _MainColor: {r: 0.36570314, g: 0.4415095, b: 0.38676044, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3888259194814322464
 MonoBehaviour:
