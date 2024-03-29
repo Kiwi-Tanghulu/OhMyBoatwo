@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public partial class ResultSlot : MonoBehaviour
 {
-    [SerializeField] TweenOptOption tweenOption = null; 
+    [SerializeField] TweenOptOption tweenOption = null;
 
     private TMP_Text nameText = null;
     private TMP_Text contentText = null;
