@@ -45,6 +45,9 @@ public class Buoyancy : MonoBehaviour
 
     public void AddForce(Transform impulseTrm, float power)
     {
+        if (impulseTrm == null)
+            return;
+
         Vector3 impulsePoint = impulseTrm.position;
         Vector3 direction = (transform.position - impulseTrm.position).normalized;
         power /= 5f;
@@ -104,7 +107,8 @@ public class Buoyancy : MonoBehaviour
             angle.x = angularAdditiveForce.x;
             angle.z = angularAdditiveForce.z;
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angle), Time.deltaTime * angularAdditiveForce.magnitude);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angle),
+                Time.deltaTime);
         }
         else
         {
