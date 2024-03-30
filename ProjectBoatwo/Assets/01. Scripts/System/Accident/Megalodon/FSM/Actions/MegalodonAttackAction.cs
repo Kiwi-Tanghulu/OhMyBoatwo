@@ -19,6 +19,10 @@ public class MegalodonAttackAction : MegalodonFSMAction
     {
         //play attack animation
         Debug.Log("megalodon attack");
+        if(targetParam.Target.TryGetComponent<IDamageable>(out IDamageable damageable))
+        {
+            damageable.OnDamaged(100f, brainTrm);
+        }
         base.EnterState();
     }
 }
