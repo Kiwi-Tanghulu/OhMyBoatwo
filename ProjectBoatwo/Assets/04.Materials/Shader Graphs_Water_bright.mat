@@ -62,14 +62,14 @@ Material:
     - _CausticCutout: 0.5
     - _CausticSpeed: 0.02
     - _CausticTiling: 2.35
-    - _Depth: 10
-    - _DepthFalloff: 4.55
-    - _DoamFalloff: 1
-    - _FoamAmount: 0.05
-    - _FoamCutout: 0.02
-    - _FoamDepth: 1.15
-    - _FoamShoreWidth: 0.51
-    - _FoamTiling: 2
+    - _Depth: 1
+    - _DepthFalloff: 0.455
+    - _DoamFalloff: 0.1
+    - _FoamAmount: 0.005
+    - _FoamCutout: 0.002
+    - _FoamDepth: 0.115
+    - _FoamShoreWidth: 0.975
+    - _FoamTiling: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WaveCount: 3
@@ -79,8 +79,8 @@ Material:
     - _FoamSpeed: {r: 0, g: 0.1, b: 0, a: 0}
     - _MainColor: {r: 0.046902817, g: 0.48354268, b: 0.5849056, a: 0}
     - _ShoreColor: {r: 0.41509432, g: 0.35831255, b: 0.35831255, a: 0}
-    - _WaveA: {r: 1, g: 1, b: 0.25, a: 60}
-    - _WaveB: {r: 1, g: 0.6, b: 0.25, a: 31}
-    - _WaveC: {r: 1, g: 1.3, b: 0.25, a: 18}
+    - _WaveA: {r: 0.1, g: 0.1, b: 0.025, a: 6}
+    - _WaveB: {r: 0.1, g: 0.06, b: 0.025, a: 3.1}
+    - _WaveC: {r: 0.1, g: 0.13, b: 0.025, a: 1.8}
     - _WaveD: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

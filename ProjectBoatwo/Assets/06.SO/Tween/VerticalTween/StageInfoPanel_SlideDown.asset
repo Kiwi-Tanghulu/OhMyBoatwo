@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenParams:
   - Caption: Slide Down
-    Delay: 0.5
-    Duration: 0.5
+    Delay: 1.5
+    Duration: 0.25
     Value: -30
     Ease: 6
   - Caption: Release
     Delay: 0
-    Duration: 0.2
+    Duration: 0.1
     Value: 0
     Ease: 7
-  endPosition: {x: 0, y: 0, z: 0}
+  endValue: 0
