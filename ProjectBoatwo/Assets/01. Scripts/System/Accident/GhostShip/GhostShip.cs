@@ -113,11 +113,11 @@ public class GhostShip : Accident
     {
         Vector3 targetPos = shipTrm.position + shipTrm.right * chaseDistance;
         float yPos = transform.position.y;
-        Vector3 rot = transform.eulerAngles;
-        float yRot = shipTrm.eulerAngles.y;
+        //Vector3 rot = transform.eulerAngles;
+        //float yRot = shipTrm.eulerAngles.y;
 
         transform.position = new Vector3(targetPos.x, yPos, targetPos.z);
-        transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
+        //transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
     }
 
     #region animation methods

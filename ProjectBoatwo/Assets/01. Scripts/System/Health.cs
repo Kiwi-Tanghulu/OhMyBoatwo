@@ -9,7 +9,7 @@ public class Health : MonoBehaviour, IDamageable
     private float currentHealth;
     public float CurrentHealth => currentHealth;
 
-    public UnityEvent<float> onDamaged;
+    public UnityEvent<Transform, float> onDamaged;
     public UnityEvent<float> onHealed;
     public UnityEvent onDied;
 
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour, IDamageable
     public void OnDamaged(float damage, Transform attacker)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0f);
-        onDamaged?.Invoke(damage);
+        onDamaged?.Invoke(attacker, damage);
 
         if(currentHealth <= 0f)
         {
