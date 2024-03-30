@@ -13,9 +13,29 @@ MonoBehaviour:
   m_Name: ResultPanel_SlideDown
   m_EditorClassIdentifier: 
   tweenParams:
-  - Caption: Slide Down
+  - Caption: Falling 1
     Delay: 5
-    Duration: 0.35
+    Duration: 0.5
+    Value: 0
+    Ease: 8
+  - Caption: Bounce 1
+    Delay: 0
+    Duration: 0.3
+    Value: 80
+    Ease: 9
+  - Caption: Falling 2
+    Delay: 0
+    Duration: 0.2
+    Value: 0
+    Ease: 8
+  - Caption: Bounce 2
+    Delay: 0
+    Duration: 0.2
+    Value: 25
+    Ease: 9
+  - Caption: Falling 3
+    Delay: 0
+    Duration: 0.05
     Value: 0
     Ease: 8
   endValue: 0

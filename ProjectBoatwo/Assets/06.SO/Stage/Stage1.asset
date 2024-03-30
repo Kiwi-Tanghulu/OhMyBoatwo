@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagePrefab: {fileID: 6298900190780236155, guid: 2514d52b304065644a0719595c741c94,
     type: 3}
-  PlayTime: 60
-  IsCleared: 0
+  StageImage: {fileID: 0}
+  StageName: 
+  PlayTime: 10
+  PlayingTime: 10.00919
+  EarnedStar: 3

@@ -20,7 +20,7 @@ MonoBehaviour:
     Ease: 0
   - Caption: Slide Down
     Delay: 0
-    Duration: 0.15
+    Duration: 0.3
     Value: 0
-    Ease: 8
+    Ease: 17
   endValue: 0

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.UI;
 
 public class ResultPanel : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ResultPanel : MonoBehaviour
     [SerializeField] PlayableDirector timelineDirector = null;
     [SerializeField] OptOption<TimelineAsset> timelineOption;
 
+    private HorizontalLayoutGroup containerLayoutGroup = null;
     private List<ResultSlot> slots = new List<ResultSlot>();
 
     private Transform container = null;
@@ -25,6 +27,8 @@ public class ResultPanel : MonoBehaviour
     private void Awake()
     {
         container = transform.Find("Container");
+        containerLayoutGroup = container.GetComponent<HorizontalLayoutGroup>();
+    
         resultText = transform.Find("ResultText").GetComponent<TMP_Text>();
         
         input.OnAnyKeyEvent += HandleNext;
@@ -37,9 +41,8 @@ public class ResultPanel : MonoBehaviour
     {
         float delay = 0f;
         slots.ForEach(i => {
-            delay = 0.25f;
+            delay = 0.5f;
             StartCoroutine(this.DelayCoroutine(delay, () => {
-                i.Display(true, true);
                 i.Display(true);
             }));
         });
@@ -65,9 +68,14 @@ public class ResultPanel : MonoBehaviour
         {
             ResultSlot slot = Instantiate(resultSlotPrefab, container);
             slot.Init(info);
-            slot.Display(false, true);
             slots.Add(slot);
         }
+
+        StartCoroutine(this.PostponeFrameCoroutine(() => {
+            containerLayoutGroup.enabled = false;
+            foreach(ResultSlot slot in slots)
+                slot.transform.localPosition += Vector3.up * 1080;
+        }));
 
         resultText.text = cleared ? "CLEAR" : "FAIL";
         timelineDirector.playableAsset = timelineOption.GetOption(cleared);
@@ -89,7 +97,9 @@ public class ResultPanel : MonoBehaviour
     private void HandleNext()
     {
         tweenOption.GetOption(false).PlayTween(() => {
-            SceneLoader.LoadSceneAsync("StageScene");
+            SceneLoader.LoadSceneAsync("StageScene", true, () => {
+                GameManager.Instance.ChangeGameState(GameState.StageSelect);
+            });
         });
     }
 }

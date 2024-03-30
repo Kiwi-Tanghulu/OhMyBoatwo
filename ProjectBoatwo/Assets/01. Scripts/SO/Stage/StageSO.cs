@@ -9,7 +9,8 @@ public class StageSO : ScriptableObject
     
     [Space(15f)]
     public float PlayTime = 60f;
-    
+    public float PlayingTime = 0f;
+
     [Space(15f)]
     public int EarnedStar = 0;
 }
