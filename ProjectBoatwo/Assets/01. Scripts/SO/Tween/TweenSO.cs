@@ -11,6 +11,7 @@ public abstract class TweenSO : ScriptableObject
     protected Transform body = null;
 
     public event Action OnTweenCompletedEvent = null;
+    public bool IsTweening => sequence.IsActive();
 
     public virtual TweenSO CreateInstance(Transform body)
     {
@@ -29,6 +30,11 @@ public abstract class TweenSO : ScriptableObject
         });
 
         OnTween(sequence);
+    }
+
+    public void ForceKillTween()
+    {
+        sequence?.Kill();
     }
 
     public TweenParam GetParam(int index) => tweenParams[index];

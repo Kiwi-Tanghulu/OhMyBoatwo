@@ -53,8 +53,8 @@ public class ResultPanel : MonoBehaviour
         InputManager.ChangeInputMap(InputMapType.UI);
         Clear();
 
-        Init(true, new PlayerInfo());
-        Display(true);
+        // Init(true, new PlayerInfo());
+        // Display(true);
     }
 
     private void OnDestroy()

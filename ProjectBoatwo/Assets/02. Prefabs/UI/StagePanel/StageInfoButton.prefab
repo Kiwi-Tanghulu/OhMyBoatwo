@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5531556105142032521}
   - component: {fileID: 6122883958591768554}
+  - component: {fileID: 5610334447171719362}
   m_Layer: 5
   m_Name: StageInfoButton
   m_TagString: Untagged
@@ -124,6 +125,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7c26465a13be5479e238d533df4053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5610334447171719362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808346276411774879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4494d956ad17ab84f98db187256ee7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenOption:
+    PositiveOption: {fileID: 11400000, guid: ff780646c13806146bc5bca193e407e4, type: 2}
+    NegativeOption: {fileID: 11400000, guid: 5da41ede04eceb34185988992eae71d9, type: 2}
 --- !u!1 &8368690601214441438
 GameObject:
   m_ObjectHideFlags: 0
