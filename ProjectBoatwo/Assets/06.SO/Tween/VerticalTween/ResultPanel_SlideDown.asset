@@ -10,17 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb112ffb328c5594bb46ee86bdcb02d5, type: 3}
-  m_Name: ResultSlot_SlideDown
+  m_Name: ResultPanel_SlideDown
   m_EditorClassIdentifier: 
   tweenParams:
-  - Caption: Init
+  - Caption: Falling 1
+    Delay: 5
+    Duration: 0.5
+    Value: 0
+    Ease: 8
+  - Caption: Bounce 1
     Delay: 0
-    Duration: 0
-    Value: 1080
-    Ease: 0
-  - Caption: Slide Down
+    Duration: 0.3
+    Value: 80
+    Ease: 9
+  - Caption: Falling 2
     Delay: 0
-    Duration: 0.15
+    Duration: 0.2
+    Value: 0
+    Ease: 8
+  - Caption: Bounce 2
+    Delay: 0
+    Duration: 0.2
+    Value: 25
+    Ease: 9
+  - Caption: Falling 3
+    Delay: 0
+    Duration: 0.05
     Value: 0
     Ease: 8
   endValue: 0

@@ -40,9 +40,9 @@ public class StageInfoPanel : MonoBehaviour
 
     public void HandleStartStage()
     {
-        Debug.Log("Start Stage");
+        Debug.Log("Create Stage");
         tweenOption.NegativeOption.PlayTween(() => {
-            SceneLoader.LoadSceneAsync("GameScene", () => {
+            SceneLoader.LoadSceneAsync("GameScene", true, () => {
                 StageManager.Instance.CreateStage(currentStageData);
             });
         });

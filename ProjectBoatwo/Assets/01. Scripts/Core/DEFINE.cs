@@ -2,6 +2,8 @@ using UnityEngine;
 
 public static class DEFINE
 {
+    public const float StageReadyCount = 3f;
+
 	private static FadeImage fadeImage = null;
     public static FadeImage FadeImage {
         get {
