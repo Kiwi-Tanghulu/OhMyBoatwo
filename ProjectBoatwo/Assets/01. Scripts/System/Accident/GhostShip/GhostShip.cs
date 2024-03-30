@@ -24,6 +24,7 @@ public class GhostShip : Accident
 
     [Space]
     [SerializeField] private float chaseDistance;
+    [SerializeField] private float moveSpeed;
     private Transform shipTrm;
 
     private bool completeAppear;
@@ -52,6 +53,7 @@ public class GhostShip : Accident
         Appear(true);
 
         col.enabled = false;
+        transform.position = shipTrm.position + shipTrm.right * chaseDistance;
         cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
         currentCannonfireDelay = 0f;
     }
@@ -112,12 +114,19 @@ public class GhostShip : Accident
     private void Chase()
     {
         Vector3 targetPos = shipTrm.position + shipTrm.right * chaseDistance;
-        float yPos = transform.position.y;
+        Vector3 dir = (targetPos - transform.position).normalized;
+        dir.y = 0f;
+
+        transform.position += dir * moveSpeed * Time.deltaTime;
+
+        #region
+        //float yPos = transform.position.y;
         //Vector3 rot = transform.eulerAngles;
         //float yRot = shipTrm.eulerAngles.y;
 
-        transform.position = new Vector3(targetPos.x, yPos, targetPos.z);
+        //transform.position = new Vector3(targetPos.x, yPos, targetPos.z);
         //transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
+        #endregion
     }
 
     #region animation methods
