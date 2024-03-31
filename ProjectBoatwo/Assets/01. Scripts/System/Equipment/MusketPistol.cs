@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Content;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -17,6 +18,7 @@ public class MusketPistol : Equipment, IAimable, IAttackable
     [SerializeField] float aimDuration;
     public float AimDuration => aimDuration;
 
+    private bool canAttack;
     public void Aim(bool value)
     {
         StopAllCoroutines();
@@ -25,7 +27,9 @@ public class MusketPistol : Equipment, IAimable, IAttackable
 
     public void Attack()
     {
-        if (!isAim) return;
+        if (!isAim || !canAttack) return;
+        Debug.Log("»§");
+        StartCoroutine(TestCoolTime());
     }
 
     public override void EnterItem()
@@ -33,11 +37,19 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         input.OnAimEvent += Aim;
         input.OnFireEvent += Attack;
         isAim = false;
+        canAttack = true;
     }
     public override void ExitItem()
     {
         input.OnAimEvent -= Aim;
         input.OnFireEvent -= Attack;
+    }
+
+    private IEnumerator TestCoolTime()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(3f);
+        canAttack = true;
     }
 
     private IEnumerator Aiming(bool value)

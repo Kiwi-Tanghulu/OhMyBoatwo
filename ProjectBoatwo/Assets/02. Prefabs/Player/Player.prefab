@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fed0f205c293048964c2207d20b33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 5
+  jumpPower: 8
 --- !u!114 &225028040301952627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,7 +1035,6 @@ GameObject:
   - component: {fileID: 1243464637623298635}
   - component: {fileID: 1486755344089349474}
   - component: {fileID: 2658702964651406119}
-  - component: {fileID: 1140955016648077567}
   - component: {fileID: 6921370935796005660}
   m_Layer: 0
   m_Name: Player
@@ -1057,7 +1056,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2453679940992350753}
+  - {fileID: 5454473501236086095}
   - {fileID: 2083443847946912773}
   - {fileID: 3390455769203596704}
   m_Father: {fileID: 0}
@@ -1078,6 +1077,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentState: {fileID: 6242791788143033070}
+  fsmParams: []
 --- !u!114 &1243464637623298635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,6 +1111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 88c86053c51125c4e9a130ca7a846d9b, type: 2}
   speedMultiplier: 6
+  gravityScale: 9.8
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1133,36 +1134,7 @@ MonoBehaviour:
   mainEquipment: {fileID: 5171590158881354727}
   subEquimpent: {fileID: 1740745508900055304}
   playerHandRig: {fileID: 68468435437881726}
-  mainEquipmentRig: {fileID: 4869643769963371486}
-  subEquipmentRig: {fileID: 7647928746357743248}
   weaponChangeDuration: 0.4
---- !u!54 &1140955016648077567
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2505704301136561080}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!136 &6921370935796005660
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1280,12 +1252,13 @@ Transform:
   m_GameObject: {fileID: 2602619727953518734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4000001, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8189650644337368592}
-  m_Father: {fileID: 2453679940992350753}
+  - {fileID: 2453679940992350753}
+  m_Father: {fileID: 2185335087142414115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4853529818165524690
 MonoBehaviour:
@@ -3025,14 +2998,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6251129187059117839}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.4000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3527454737029365316}
   - {fileID: 6111573001904486304}
-  - {fileID: 5454473501236086095}
   - {fileID: 2091194744776533623}
   - {fileID: 818273114770527373}
   - {fileID: 5421820275266617630}
@@ -3040,7 +3012,7 @@ Transform:
   - {fileID: 1257630312717772286}
   - {fileID: 7174092022272129558}
   - {fileID: 6468284821129020397}
-  m_Father: {fileID: 2185335087142414115}
+  m_Father: {fileID: 5454473501236086095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3354014946752023643
 Animator:
@@ -4278,7 +4250,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2668579610112960672}
   - component: {fileID: 4959046040818705791}
-  - component: {fileID: 8628461553073239406}
   - component: {fileID: 8150716034628476877}
   m_Layer: 0
   m_Name: FallState
@@ -4322,21 +4293,6 @@ MonoBehaviour:
   OnExitStateEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8628461553073239406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8925999256369217756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e2186c0a1cd92648beafb3366a95c6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextState: {fileID: 0}
-  minSpeed: 2
-  maxSpeed: 3
 --- !u!114 &8150716034628476877
 MonoBehaviour:
   m_ObjectHideFlags: 0

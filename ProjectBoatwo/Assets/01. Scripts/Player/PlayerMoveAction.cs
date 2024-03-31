@@ -20,6 +20,7 @@ public class PlayerMoveAction : FSMAction
         base.EnterState();
         playerMovement.Input.OnRunEvent += SetRun;
         playerMovement.Input.OnJumpEvent += SetJump;
+        playerMovement.SetVerticalVelocity(0f);
         SetRun(playerMovement.IsRun);
     }
     public override void ExitState()
