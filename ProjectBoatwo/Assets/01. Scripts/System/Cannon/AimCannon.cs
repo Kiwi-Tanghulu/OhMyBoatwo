@@ -70,12 +70,12 @@ public class AimCannon : Cannon, IFocusable, IInteractable
         transform.localRotation = Quaternion.Euler(0f, originRotate.y + currentRotate.x, 0f);
     }
 
-    public override void Fire()
+    public void Fire()
     {
         if (!selected)
             return;
 
-        base.Fire();
+        Fire(FirePoint.forward);
 
         anim.SetTrigger(fireHash);
     }

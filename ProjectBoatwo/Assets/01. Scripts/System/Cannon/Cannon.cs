@@ -18,20 +18,22 @@ public class Cannon : MonoBehaviour
 
     public UnityEvent<Transform> OnFire;
 
+    public Transform FirePoint => firePoint;
+
     protected virtual void Awake()
     {
         canFire = true;
         wfs = new WaitForSeconds(fireDelay);
     }
 
-    public virtual void Fire()
+    public virtual void Fire(Vector3 fireDir)
     {
         if (!canFire) return;
 
         CannonBall ball = PoolManager.Instance.Pop(cannonBallPrefab.name, firePoint.position) as CannonBall;
         ball.gameObject.SetActive(false);
         ball.transform.position = firePoint.position;
-        ball.Fire(firePoint.forward * firePower, targetLayer);
+        ball.Fire(fireDir * firePower, targetLayer);
         OnFire?.Invoke(firePoint);
     }
 
