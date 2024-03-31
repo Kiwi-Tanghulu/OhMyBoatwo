@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce3b7b349f04b64cb07561f2af20c1d, type: 3}
+  m_Name: MegalodonAudioLib
+  m_EditorClassIdentifier: 
+  audioTables:
+  - Key: Move1
+    Audio: {fileID: 8300000, guid: 0752767ab2509dd4f899a93d318e8f34, type: 3}
+  - Key: Move2
+    Audio: {fileID: 8300000, guid: 07aecc75af07e8f47bbbeed08407d9e6, type: 3}
+  - Key: Move3
+    Audio: {fileID: 8300000, guid: 67481be6cf1d22c439e7bc0802601fb4, type: 3}
