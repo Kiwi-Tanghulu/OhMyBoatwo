@@ -162,6 +162,8 @@ MonoBehaviour:
   minCannonFireDelay: 2
   maxFireCount: 3
   minFireCount: 1
+  maxFireAngle: -10
+  minFireAngle: -35
   chaseDistance: 60
   moveSpeed: 2
 --- !u!114 &7481554638508154384

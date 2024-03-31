@@ -141,7 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   firePoint: {fileID: 3421719581556191785}
-  firePower: 40
+  firePower: 30
   fireDelay: 3
   cannonBallPrefab: {fileID: 5192810437580947135, guid: c01fad637255ed94a8e3d47ef5d15c8b,
     type: 3}

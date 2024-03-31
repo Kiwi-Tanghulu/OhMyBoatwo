@@ -1,8 +1,3 @@
-using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class GhostShip : Accident
@@ -19,6 +14,8 @@ public class GhostShip : Accident
     private float currentCannonfireDelay;
     [SerializeField] private int maxFireCount;
     [SerializeField] private int minFireCount;
+    [SerializeField] private int maxFireAngle;
+    [SerializeField] private int minFireAngle;
     private Cannon[] cannons;
     private int[] cannonIndices;
 
@@ -105,7 +102,11 @@ public class GhostShip : Accident
 
         int fireCount = UnityEngine.Random.Range(minFireCount, maxFireCount + 1);
         for (int i = 0; i < fireCount; i++)
-            cannons[cannonIndices[i]].Fire();
+        {
+            Cannon cannon = cannons[cannonIndices[i]];
+            
+            cannon.Fire(Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(minFireAngle, maxFireAngle)) * cannon.FirePoint.forward);
+        }
 
         cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
         currentCannonfireDelay = 0f;
