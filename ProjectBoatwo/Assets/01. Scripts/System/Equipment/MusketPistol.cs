@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using Unity.Content;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Events;
 
 public class MusketPistol : Equipment, IAimable, IAttackable
 {
+    [SerializeField] private UnityEvent fireEvent;
     [SerializeField] private CinemachineVirtualCamera cam;
 
     [SerializeField] Rig aimRig;
@@ -22,14 +24,14 @@ public class MusketPistol : Equipment, IAimable, IAttackable
     public void Aim(bool value)
     {
         StopAllCoroutines();
+        if (value == false) isAim = false;
         StartCoroutine(Aiming(value));
     }
 
     public void Attack()
     {
         if (!isAim || !canAttack) return;
-        Debug.Log("»§");
-        StartCoroutine(TestCoolTime());
+        fireEvent?.Invoke();
     }
 
     public override void EnterItem()
@@ -44,14 +46,6 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         input.OnAimEvent -= Aim;
         input.OnFireEvent -= Attack;
     }
-
-    private IEnumerator TestCoolTime()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(3f);
-        canAttack = true;
-    }
-
     private IEnumerator Aiming(bool value)
     {
         while (true)
@@ -67,7 +61,6 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         }
 
         if (aimRig.weight > 0.98f) isAim = true;
-        else isAim = false;
     }
 
 }
