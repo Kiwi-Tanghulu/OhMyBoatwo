@@ -593,7 +593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
+  spawnEffect: {fileID: 8147895443162463537, guid: 12edeeb73b060c2448bf9c271436a1d5,
+    type: 3}
 --- !u!114 &6206511002646662426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +773,7 @@ GameObject:
   - component: {fileID: 9201715860328986207}
   - component: {fileID: 7070876639239089474}
   - component: {fileID: 8889679609655682043}
+  - component: {fileID: 2299239051921009631}
   m_Layer: 0
   m_Name: IdleState
   m_TagString: Untagged
@@ -850,6 +853,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: e27121b90445b6a43a28132f3d02e3a4, type: 2}
+--- !u!114 &2299239051921009631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264167003044345622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd4ceae40434614db05d243a84a4b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7758598505866123724
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +958,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FeedbackPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
