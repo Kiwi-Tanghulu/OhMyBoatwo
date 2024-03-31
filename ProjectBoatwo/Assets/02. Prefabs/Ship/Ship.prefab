@@ -43156,13 +43156,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5505174010756239773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08311387, y: -0.045832492, z: 0.0035903612, w: 0.99547905}
+  m_LocalRotation: {x: 0.08306641, y: 0.0518178, z: -0.004561462, w: 0.99518543}
   m_LocalPosition: {x: 2.9614, y: 8.5063, z: -6.2135}
   m_LocalScale: {x: 0.5874391, y: 1, z: 6.020493}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5197730020062458752}
-  m_LocalEulerAnglesHint: {x: 9.544, y: -5.274, z: -0.027}
+  m_LocalEulerAnglesHint: {x: 9.544, y: 5.959, z: -0.027}
 --- !u!33 &142617786052349381
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59377,7 +59377,7 @@ Transform:
   m_GameObject: {fileID: 6933575423626016417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59446,7 +59446,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f31829594e20b2645847af4bb855242a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4d1dd08c6605c8e41b0b9b0aac8e9a7f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &7009419598286386952
 GameObject:

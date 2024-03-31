@@ -22,4 +22,15 @@ public static class DEFINE
 			return mainCanvas;
 		}
 	}
+
+    private static AudioSource globalAudioPlayer = null;
+    public static AudioSource GlobalAudioPlayer
+    {
+        get
+        {
+            if (mainCanvas == null)
+                mainCanvas = GameObject.Find("GlobalAudioPlayer")?.transform;
+            return globalAudioPlayer;
+        }
+    }
 }
