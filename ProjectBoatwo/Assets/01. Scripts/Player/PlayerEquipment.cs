@@ -10,14 +10,8 @@ public class PlayerEquipment : MonoBehaviour
     [SerializeField] private Equipment subEquimpent;
 
     private Equipment currentEquipment;
-    private Equipment nextEquipment;
 
     [SerializeField] private Rig playerHandRig;
-    [SerializeField] private Rig mainEquipmentRig;
-    [SerializeField] private Rig subEquipmentRig;
-
-    private Rig currentEquipmentRig;
-    private Rig nextEquipmentRig;
 
     [SerializeField] private float weaponChangeDuration;
 
@@ -27,14 +21,9 @@ public class PlayerEquipment : MonoBehaviour
     {
         input.OnChangeEvent += ChangeWeapon;
         currentEquipment = mainEquipment;
-        nextEquipment = subEquimpent;
-        currentEquipmentRig = mainEquipmentRig;
-        nextEquipmentRig = subEquipmentRig;
         isChange = false;
 
         playerHandRig.weight = 1f;
-        currentEquipmentRig.weight = 1f;
-        nextEquipmentRig.weight = 0f;
 
         mainEquipment.EnterItem();
     }
@@ -77,17 +66,5 @@ public class PlayerEquipment : MonoBehaviour
         //SwapEquipment();
 
         isChange = false;
-    }
-
-    private void SwapEquipment()
-    {
-        Equipment equipTemp = currentEquipment;
-        Rig rigTemp = currentEquipmentRig;
-
-        currentEquipment = nextEquipment;
-        currentEquipmentRig = nextEquipmentRig;
-
-        nextEquipment = equipTemp;
-        nextEquipmentRig = rigTemp;
     }
 }
