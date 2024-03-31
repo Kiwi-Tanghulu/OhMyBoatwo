@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJump;
     public bool IsJump { get => isJump; set => isJump = value; }
 
+    [SerializeField] private float gravityScale;
     private float verticalVelocity;
 
     private bool isRun;
@@ -56,9 +57,9 @@ public class PlayerMovement : MonoBehaviour
     {
         verticalVelocity = value;
     }
-    private void Gravity()
+    public void Gravity()
     {
-
+        verticalVelocity -= gravityScale * Time.deltaTime;
     }
     public void SetCurrentMaxSpeed(float _currentMaxSpeed)
     {
@@ -67,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
     public void SpeedCalculate()
     {
         if (currentSpeed > currentMaxSpeed)
-            currentSpeed += -speedMultiplier * Time.fixedDeltaTime;
+            currentSpeed += -speedMultiplier * Time.deltaTime;
         else
-            currentSpeed += (MoveDir.sqrMagnitude > 0.1f ? speedMultiplier : -speedMultiplier) * Time.fixedDeltaTime;
+            currentSpeed += (MoveDir.sqrMagnitude > 0.1f ? speedMultiplier : -speedMultiplier) * Time.deltaTime;
         currentSpeed = Mathf.Clamp(currentSpeed, 0f, float.MaxValue);
     }
     public void ResetSpeed()
@@ -78,7 +79,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move()
     {
-        Vector3 moveDir = transform.rotation * lastMoveDir;
+        if (!IsGround())
+        {
+            Gravity();
+        }
+        Vector3 moveDir = transform.localRotation * lastMoveDir;
         if (IsOnSlope() && IsGround() && !isJump)
         {
             moveDir = AdjustDirectionToSlope(moveDir);
@@ -90,9 +95,10 @@ public class PlayerMovement : MonoBehaviour
             //rigid.useGravity = true;
         }
         //rigid.MovePosition(transform.position + moveDir * currentSpeed * Time.fixedDeltaTime);
+        transform.localPosition += (moveDir * currentSpeed + verticalVelocity * Vector3.up) * Time.deltaTime;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         SpeedCalculate();
         Move();
