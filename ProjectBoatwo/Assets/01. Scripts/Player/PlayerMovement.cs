@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isJump;
     public bool IsJump { get => isJump; set => isJump = value; }
 
+    private float verticalVelocity;
+
     private bool isRun;
     public bool IsRun { get; set; }
 
@@ -31,14 +33,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 DownArrivePos { get; private set; }
     #endregion
 
-    private Rigidbody rigid;
-    public Rigidbody Rigid => rigid;
+   // private Rigidbody rigid;
+    //public Rigidbody Rigid => rigid;
 
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private BoxCollider groundCheckCol;
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+        //rigid = GetComponent<Rigidbody>();
         InputManager.ChangeInputMap(InputMapType.Play);
     }
     private void Start()
@@ -49,6 +51,14 @@ public class PlayerMovement : MonoBehaviour
     private void OnDestroy()
     {
         input.OnMoveEvent -= SetMoveDirection;
+    }
+    public void SetVerticalVelocity(float value)
+    {
+        verticalVelocity = value;
+    }
+    private void Gravity()
+    {
+
     }
     public void SetCurrentMaxSpeed(float _currentMaxSpeed)
     {
@@ -72,14 +82,14 @@ public class PlayerMovement : MonoBehaviour
         if (IsOnSlope() && IsGround() && !isJump)
         {
             moveDir = AdjustDirectionToSlope(moveDir);
-            rigid.useGravity = false;
-            rigid.velocity = Vector3.zero;
+            //rigid.useGravity = false;
+            //rigid.velocity = Vector3.zero;
         }
         else
         {
-            rigid.useGravity = true;
+            //rigid.useGravity = true;
         }
-        rigid.MovePosition(transform.position + moveDir * currentSpeed * Time.fixedDeltaTime);
+        //rigid.MovePosition(transform.position + moveDir * currentSpeed * Time.fixedDeltaTime);
     }
 
     private void FixedUpdate()

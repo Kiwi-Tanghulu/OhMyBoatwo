@@ -16,7 +16,7 @@ public class PlayerJumpAction : FSMAction
     public override void EnterState()
     {
         base.EnterState();
-        playerMovement.Rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+        //playerMovement.Rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         playerMovement.IsJump = true;
     }
 

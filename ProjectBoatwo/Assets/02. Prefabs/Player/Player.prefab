@@ -1057,7 +1057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2453679940992350753}
+  - {fileID: 5454473501236086095}
   - {fileID: 2083443847946912773}
   - {fileID: 3390455769203596704}
   m_Father: {fileID: 0}
@@ -1078,6 +1078,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentState: {fileID: 6242791788143033070}
+  fsmParams: []
 --- !u!114 &1243464637623298635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,8 +1134,6 @@ MonoBehaviour:
   mainEquipment: {fileID: 5171590158881354727}
   subEquimpent: {fileID: 1740745508900055304}
   playerHandRig: {fileID: 68468435437881726}
-  mainEquipmentRig: {fileID: 4869643769963371486}
-  subEquipmentRig: {fileID: 7647928746357743248}
   weaponChangeDuration: 0.4
 --- !u!54 &1140955016648077567
 Rigidbody:
@@ -1285,7 +1284,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8189650644337368592}
-  m_Father: {fileID: 2453679940992350753}
+  - {fileID: 2453679940992350753}
+  m_Father: {fileID: 2185335087142414115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4853529818165524690
 MonoBehaviour:
@@ -3025,14 +3025,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6251129187059117839}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.4000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3527454737029365316}
   - {fileID: 6111573001904486304}
-  - {fileID: 5454473501236086095}
   - {fileID: 2091194744776533623}
   - {fileID: 818273114770527373}
   - {fileID: 5421820275266617630}
@@ -3040,7 +3039,7 @@ Transform:
   - {fileID: 1257630312717772286}
   - {fileID: 7174092022272129558}
   - {fileID: 6468284821129020397}
-  m_Father: {fileID: 2185335087142414115}
+  m_Father: {fileID: 5454473501236086095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3354014946752023643
 Animator:
