@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce3b7b349f04b64cb07561f2af20c1d, type: 3}
+  m_Name: WeaponAudioLib
+  m_EditorClassIdentifier: 
+  audioTables:
+  - Key: Swing1
+    Audio: {fileID: 8300000, guid: 6815bb1683942ad429fe5581bf9bf7e0, type: 3}
+  - Key: Swing2
+    Audio: {fileID: 8300000, guid: eb6413e101897d34581d34e55b321bd0, type: 3}
+  - Key: PistolFire
+    Audio: {fileID: 8300000, guid: c3d1904177da38a408d5a749e9e40fa6, type: 3}
+  - Key: CannonExplosion
+    Audio: {fileID: 8300000, guid: 0e8ba219b102bd14d8902e3369f4e47f, type: 3}
+  - Key: CannonFire1
+    Audio: {fileID: 8300000, guid: a957fac4266fc3645873db32728f7482, type: 3}
+  - Key: CannonFire2
+    Audio: {fileID: 8300000, guid: 691a215f119aa74499ca48fc073d9b19, type: 3}
