@@ -13,7 +13,7 @@ public class AudioPlayer : MonoBehaviour
     private void Start()
     {
         if (player == null)
-            player = GameManager.Instance.GlobalAudioPlayer;
+            player = DEFINE.GlobalAudioPlayer;
     }
 
     public void PlayAudio(string key)
