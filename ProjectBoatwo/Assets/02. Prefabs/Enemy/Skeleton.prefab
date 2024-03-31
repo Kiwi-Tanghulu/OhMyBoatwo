@@ -610,6 +610,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentState: {fileID: 8943433565792769735}
+  fsmParams:
+  - {fileID: 11400000, guid: e27121b90445b6a43a28132f3d02e3a4, type: 2}
+  - {fileID: 11400000, guid: 5b0c78d3e4df361478ec860f78b53d24, type: 2}
 --- !u!114 &2576588855922421021
 MonoBehaviour:
   m_ObjectHideFlags: 0

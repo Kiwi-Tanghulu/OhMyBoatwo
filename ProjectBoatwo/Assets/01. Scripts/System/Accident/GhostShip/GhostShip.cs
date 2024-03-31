@@ -1,8 +1,3 @@
-using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class GhostShip : Accident
@@ -19,11 +14,14 @@ public class GhostShip : Accident
     private float currentCannonfireDelay;
     [SerializeField] private int maxFireCount;
     [SerializeField] private int minFireCount;
+    [SerializeField] private int maxFireAngle;
+    [SerializeField] private int minFireAngle;
     private Cannon[] cannons;
     private int[] cannonIndices;
 
     [Space]
     [SerializeField] private float chaseDistance;
+    [SerializeField] private float moveSpeed;
     private Transform shipTrm;
 
     private bool completeAppear;
@@ -52,6 +50,7 @@ public class GhostShip : Accident
         Appear(true);
 
         col.enabled = false;
+        transform.position = shipTrm.position + shipTrm.right * chaseDistance;
         cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
         currentCannonfireDelay = 0f;
     }
@@ -103,7 +102,11 @@ public class GhostShip : Accident
 
         int fireCount = UnityEngine.Random.Range(minFireCount, maxFireCount + 1);
         for (int i = 0; i < fireCount; i++)
-            cannons[cannonIndices[i]].Fire();
+        {
+            Cannon cannon = cannons[cannonIndices[i]];
+            
+            cannon.Fire(Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(minFireAngle, maxFireAngle)) * cannon.FirePoint.forward);
+        }
 
         cannonfireDelay = UnityEngine.Random.Range(minCannonFireDelay, maxCannonFireDelay);
         currentCannonfireDelay = 0f;
@@ -112,12 +115,19 @@ public class GhostShip : Accident
     private void Chase()
     {
         Vector3 targetPos = shipTrm.position + shipTrm.right * chaseDistance;
-        float yPos = transform.position.y;
-        Vector3 rot = transform.eulerAngles;
-        float yRot = shipTrm.eulerAngles.y;
+        Vector3 dir = (targetPos - transform.position).normalized;
+        dir.y = 0f;
 
-        transform.position = new Vector3(targetPos.x, yPos, targetPos.z);
-        transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
+        transform.position += dir * moveSpeed * Time.deltaTime;
+
+        #region
+        //float yPos = transform.position.y;
+        //Vector3 rot = transform.eulerAngles;
+        //float yRot = shipTrm.eulerAngles.y;
+
+        //transform.position = new Vector3(targetPos.x, yPos, targetPos.z);
+        //transform.rotation = Quaternion.Euler(rot.x, yRot, rot.z);
+        #endregion
     }
 
     #region animation methods

@@ -7,6 +7,7 @@ using static Controls;
 public class UIInputSO : InputSO, IUIActions
 {
     public Action OnEscapeEvent = null;
+    public Action OnAnyKeyEvent = null;
     public Action<bool> OnLeftClickEevnt = null;
     public Action<bool> OnRightClickEevnt = null;
     public Action<float> OnScrollEvent = null;
@@ -52,5 +53,11 @@ public class UIInputSO : InputSO, IUIActions
     public void OnMouseDelta(InputAction.CallbackContext context)
     {
         MouseDelta = context.ReadValue<Vector2>();
+    }
+
+    public void OnAnyKey(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            OnAnyKeyEvent?.Invoke();
     }
 }

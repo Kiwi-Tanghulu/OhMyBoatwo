@@ -17,6 +17,7 @@ public class Stage : MonoBehaviour
     public void InitStage()
     {
         // 스테이지 초기화
+        stageData.PlayingTime = 0f;
         OnStageInitEvent?.Invoke();
     }
 
@@ -37,6 +38,11 @@ public class Stage : MonoBehaviour
     {
         // 스테이지가 끝났을 때의 처리를 하면 됨
         OnStageFinishEvent?.Invoke();
+        SceneLoader.LoadSceneAsync("ResultScene", true, () => {
+            ResultPanel resultPanel = DEFINE.MainCanvas.Find("ResultPanel").GetComponent<ResultPanel>();
+            resultPanel.Init(stageData.EarnedStar > 0, new PlayerInfo());
+            resultPanel.Display(true);
+        });
     }
 
     /// <summary>

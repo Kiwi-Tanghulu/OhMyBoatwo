@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce3b7b349f04b64cb07561f2af20c1d, type: 3}
+  m_Name: SkeletonAudioLib
+  m_EditorClassIdentifier: 
+  audioTables:
+  - Key: Appear1
+    Audio: {fileID: 8300000, guid: fb29924c41cc7fd45ab4ba252ed84c38, type: 3}
+  - Key: Appear2
+    Audio: {fileID: 8300000, guid: c1cac3d016b97ee4e8195c4cb6c63068, type: 3}
+  - Key: Appear3
+    Audio: {fileID: 8300000, guid: 7a5c153e41395204db702a07968752b4, type: 3}
+  - Key: Event1
+    Audio: {fileID: 8300000, guid: 7c97fb4a72e78eb418bcfda1c408fdac, type: 3}
+  - Key: Event2
+    Audio: {fileID: 8300000, guid: f127858177df5de448b23076aebdf227, type: 3}
+  - Key: Event3
+    Audio: {fileID: 8300000, guid: 2217670f83b6ed84e8f890d5a258322a, type: 3}
+  - Key: Hit
+    Audio: {fileID: 8300000, guid: 7aa70268f987b23408d454fd216949a4, type: 3}

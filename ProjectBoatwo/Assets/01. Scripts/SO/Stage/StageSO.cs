@@ -4,6 +4,13 @@ using UnityEngine;
 public class StageSO : ScriptableObject
 {
 	public Stage StagePrefab = null;
+    public Sprite StageImage = null;
+    public string StageName = "";
+    
+    [Space(15f)]
     public float PlayTime = 60f;
-    public bool IsCleared = false;
+    public float PlayingTime = 0f;
+
+    [Space(15f)]
+    public int EarnedStar = 0;
 }

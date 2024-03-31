@@ -5,7 +5,7 @@ public class MenuPanel : MonoBehaviour
 	public void ClickSinglePlay()
     {
         Debug.Log("Play Single");
-        SceneLoader.LoadSceneAsync("StageScene");
+        SceneLoader.LoadSceneAsync("StageScene", false);
     }
 
     public void ClickCOOPPlay()

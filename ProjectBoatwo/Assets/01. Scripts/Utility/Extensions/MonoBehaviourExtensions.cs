@@ -9,4 +9,10 @@ public static class MonoBehaviourExtensions
         yield return new WaitForSeconds(delay);
         callback?.Invoke();
     }
+
+    public static IEnumerator PostponeFrameCoroutine(this MonoBehaviour left, Action callback)
+    {
+        yield return null;
+        callback?.Invoke();
+    }
 }

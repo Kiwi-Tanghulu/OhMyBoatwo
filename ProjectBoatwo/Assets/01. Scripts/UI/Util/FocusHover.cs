@@ -1,28 +1,31 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class FocusHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] float sizeFactor = 1.25f;
-    private RectTransform rectTransform;
-    
-    private Vector2 FOCUSED_SIZE;
-    private Vector2 UNFOCUSED_SIZE;
+    [SerializeField] TweenOptOption tweenOption = null;
+    public UnityEvent OnHoverEnterEvent = null;
+    public UnityEvent OnHoverExitEvent = null;
 
     private void Awake()
     {
-        rectTransform = transform as RectTransform;
-        UNFOCUSED_SIZE = rectTransform.sizeDelta;
-        FOCUSED_SIZE = rectTransform.sizeDelta * sizeFactor;
+        tweenOption.Init(transform);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        rectTransform.sizeDelta = FOCUSED_SIZE;
+        if(tweenOption.NegativeOption.IsTweening)
+            tweenOption.NegativeOption.ForceKillTween();
+        tweenOption.PositiveOption.PlayTween();
+        OnHoverEnterEvent?.Invoke();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        rectTransform.sizeDelta = UNFOCUSED_SIZE;
+        if (tweenOption.PositiveOption.IsTweening)
+            tweenOption.PositiveOption.ForceKillTween();
+        tweenOption.NegativeOption.PlayTween();
+        OnHoverExitEvent?.Invoke();
     }
 }
