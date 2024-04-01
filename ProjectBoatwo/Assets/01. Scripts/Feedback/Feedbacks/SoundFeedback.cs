@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class SoundFeedback : Feedback
 {
-    private AudioSource audioSource;
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
+    [SerializeField] private AudioLibrarySO audioLib;
+    [SerializeField] private string clipName;
+    
     public override void Play(Transform playTrm)
     {
-        audioSource.Play();
+        Debug.Log("fire cannon");
+        DEFINE.GlobalAudioPlayer.PlayOneShot(audioLib[clipName]);
     }
 }

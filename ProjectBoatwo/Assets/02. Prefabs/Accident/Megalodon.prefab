@@ -1410,11 +1410,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingPower: 0
+  floatingOffset: 0
   frontFloatingPoint: {fileID: 9095132280637938666}
   backFloatingPoint: {fileID: 7346470078790120258}
   leftFloatingPoint: {fileID: 7542821215177772442}
   rightFloatingPoint: {fileID: 6756618751127952779}
-  floatingOffset: 0
+  drag: 0
+  angularDrag: 0
+  minAdditiveForce: 0
+  minAngularAdditiveForce: 0
+  angularForceMultiplier: 0
+  middleHeight: 0
 --- !u!64 &5033952287091291325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1496,7 +1502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReverse: 0
-  transTime: 10
+  transTime: 3
 --- !u!1 &8196529927290176036
 GameObject:
   m_ObjectHideFlags: 0

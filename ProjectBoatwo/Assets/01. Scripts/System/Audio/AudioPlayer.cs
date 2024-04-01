@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    [SerializeField] AudioLibrarySO audioLibrary = null;
-    private AudioSource player = null;
+    [SerializeField] protected AudioLibrarySO audioLibrary = null;
+    protected AudioSource player = null;
 
     private void Awake()
     {
@@ -20,12 +20,12 @@ public class AudioPlayer : MonoBehaviour
     {
         Stop();
         player.clip = audioLibrary[key];
-        player.Play();
+        player?.Play();
     }
 
     public void PlayOneShot(string key)
     {
-        player.PlayOneShot(audioLibrary[key]);
+        player?.PlayOneShot(audioLibrary[key]);
     }
 
     public void Pause()

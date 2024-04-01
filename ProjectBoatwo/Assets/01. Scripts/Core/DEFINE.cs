@@ -28,8 +28,8 @@ public static class DEFINE
     {
         get
         {
-            if (mainCanvas == null)
-                mainCanvas = GameObject.Find("GlobalAudioPlayer")?.transform;
+            if (globalAudioPlayer == null)
+                globalAudioPlayer = GameObject.Find("GlobalAudioPlayer")?.GetComponent<AudioSource>();
             return globalAudioPlayer;
         }
     }

@@ -15,8 +15,9 @@ public class MegalodonAccident : Accident
     {
         base.StartAccident();
 
+        //DEFINE.GlobalAudioPlayer.PlayOneShot(audioLib[""]);
         Vector3 dir = new Vector3(UnityEngine.Random.Range(-1f, 1f), 0f, UnityEngine.Random.Range(-1f, 1f));
-        transform.position = Ship.Instance.transform.position + dir * startDistance;
+        transform.position = Ship.Instance.transform.position + Vector3.right * startDistance;
     }
 
     public override void UpdateAccident()

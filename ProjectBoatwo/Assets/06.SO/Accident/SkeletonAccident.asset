@@ -16,7 +16,7 @@ MonoBehaviour:
   Container: {fileID: 0}
   SkeletonPrefab: {fileID: -4211878872208535970, guid: eab7839b453f7a843bfe6efc825d7595,
     type: 3}
-  SpawnRadius: 2.5
+  SpawnRadius: 5
   SpawnRate: 1
   SpawnYOffset: -0.55
   SkeletonCount: 3
