@@ -30,8 +30,7 @@ public class AccidentManager : MonoBehaviour
     {
         InitAccident();
 
-        noticePanel = GameObject.FindObjectOfType<NoticePanel>();
-        Debug.Log(noticePanel);
+        noticePanel = GameObject.FindObjectOfType<NoticePanel>(true);
     }
 
     private void Update()

@@ -24,6 +24,7 @@ public class WaterLeak : MonoBehaviour, IFocusable, IInteractable
     private void Awake()
     {
         //focusedObj = transform.Find("FocusedVisual").gameObject;
+        GameObject.FindObjectOfType<RepairGauge>(true).RegistLeak(this);
     }
 
     private void Start()

@@ -10,6 +10,9 @@ public class Cannon : MonoBehaviour
     [SerializeField] private LayerMask targetLayer;
 
     [Space]
+    [SerializeField] private CannonBallOwnerType ownerType;
+
+    [Space]
     [SerializeField] private Transform firePoint;
     [SerializeField] private float firePower;
     [SerializeField] private float fireDelay;
@@ -34,6 +37,7 @@ public class Cannon : MonoBehaviour
         CannonBall ball = PoolManager.Instance.Pop(cannonBallPrefab.name, firePoint.position) as CannonBall;
         ball.gameObject.SetActive(false);
         ball.transform.position = firePoint.position;
+        ball.SetOwner(ownerType);
         ball.Fire(fireDir * firePower, targetLayer);
         OnFire?.Invoke(firePoint);
     }

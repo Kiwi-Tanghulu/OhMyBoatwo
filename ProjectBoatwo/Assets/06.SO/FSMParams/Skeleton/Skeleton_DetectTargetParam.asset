@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef89e1b76500a04a962504c6ed46ac1, type: 3}
   m_Name: Skeleton_DetectTargetParam
   m_EditorClassIdentifier: 
-  Radius: 3
+  Radius: 15
   TargetLayer:
     serializedVersion: 2
     m_Bits: 2048
   Target: {fileID: 0}
+  GIZMO: 0

@@ -10,19 +10,18 @@ public class RepairGauge : MonoBehaviour
     private void Awake()
     {
         gaugeImage = GetComponent<Image>();
-
-        WaterLeak[] leaks = GameObject.FindObjectsByType<WaterLeak>(FindObjectsSortMode.None);
-        for (int i = 0; i < leaks.Length; i++)
-        {
-            leaks[i].OnStartRepairing += WaterLeak_OnStartRepairing;
-            leaks[i].OnRepairing += SetGaugeVlaue;
-            leaks[i].OnEndRepairing += WaterLeak_OnEndRepairing;
-        }
     }
 
     private void Start()
     {
         gameObject.SetActive(false);
+    }
+
+    public void RegistLeak(WaterLeak leak)
+    {
+        leak.OnStartRepairing += WaterLeak_OnStartRepairing;
+        leak.OnRepairing += SetGaugeVlaue;
+        leak.OnEndRepairing += WaterLeak_OnEndRepairing;
     }
 
     private void SetGaugeVlaue(float value)
