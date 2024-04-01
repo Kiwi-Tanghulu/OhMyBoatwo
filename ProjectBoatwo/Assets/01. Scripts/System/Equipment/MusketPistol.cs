@@ -33,7 +33,8 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         if (!isAim || isFire) return;
         fireEvent?.Invoke();
         animator.enabled = true;
-        animator.Play("Fire" + equipmentName);
+
+        animator.Play("Fire" + equipmentName,0,0f);
         isFire = true;
     }
     private void Start()
