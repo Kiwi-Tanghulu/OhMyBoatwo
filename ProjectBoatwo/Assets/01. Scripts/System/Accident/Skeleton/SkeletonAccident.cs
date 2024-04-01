@@ -12,14 +12,17 @@ public class SkeletonAccident : Accident
     {
         base.StartAccident();
 
-        if(accidentData.Container.childCount > 0)
-            return;
-
-        float delay = 0f;
-        for(int i = 0; i < accidentData.SkeletonCount; ++i)
+        for(int i = 0; i < accidentData.SpawnPositions.Length; ++i)
         {
-            StartCoroutine(this.DelayCoroutine(delay, SpawnSkeleton));
-            delay += accidentData.SpawnRate;
+            if(accidentData.Container.childCount > 0)
+                return;
+
+            float delay = 0f;
+            for(int j = 0; j < accidentData.SkeletonCount; ++j)
+            {
+                StartCoroutine(this.DelayCoroutine(delay, () => SpawnSkeleton(i)));
+                delay += accidentData.SpawnRate;
+            }
         }
     }
 
@@ -28,11 +31,11 @@ public class SkeletonAccident : Accident
         
     }
 
-    private void SpawnSkeleton()
+    private void SpawnSkeleton(int index)
     {
         Skeleton instance = Instantiate(accidentData.SkeletonPrefab, accidentData.Container);
         instance.OnSkeletonDestroyEvent += HandleSkeletonDestroy;
-        instance.transform.position = accidentData.GetSpawnPosition();
+        instance.transform.position = accidentData.GetSpawnPosition(index);
         instance.FitToGround();
         instance.transform.position += new Vector3(0f, accidentData.SpawnYOffset, 0f);
         // Debug.Break();

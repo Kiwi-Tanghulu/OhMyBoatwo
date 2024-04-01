@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Accident/SkeletonAccidentData")]
 public class SkeletonAccidentSO : ScriptableObject
 {
-	public Transform SpawnPosition = null;
+	public Transform[] SpawnPositions = null;
     public Transform Container = null;
     public Skeleton SkeletonPrefab = null;
     public float SpawnRadius = 1f;
@@ -11,9 +11,9 @@ public class SkeletonAccidentSO : ScriptableObject
     public float SpawnYOffset = -0.4f;
     public float SkeletonCount = 10;
 
-    public Vector3 GetSpawnPosition()
+    public Vector3 GetSpawnPosition(int index)
     {
-        Vector3 origin = SpawnPosition.position;
+        Vector3 origin = SpawnPositions[index].position;
         Vector3 factor = Random.insideUnitCircle;
         float distance = Random.Range(0f, SpawnRadius);
         
