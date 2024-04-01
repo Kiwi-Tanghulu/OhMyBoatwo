@@ -49,6 +49,7 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         animator.Play("Fire" + equipmentName, 0, 0f);
         if (Physics.Raycast(fireStartTrm.position, (playerLookAtTrm.position - fireStartTrm.position).normalized, out RaycastHit hit,float.MaxValue))
         {
+            Debug.Log(hit.transform.gameObject.layer);
             if(hit.transform.gameObject.layer == monsterLayer)
             {
                 hit.transform.TryGetComponent<IDamageable>(out IDamageable d);
