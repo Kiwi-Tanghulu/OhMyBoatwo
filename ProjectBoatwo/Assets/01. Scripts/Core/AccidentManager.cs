@@ -13,10 +13,10 @@ public class AccidentManager : MonoBehaviour
     private List<Accident> activeAccidents;
     private List<StageAccidentInfo> allAccidentInfos;
 
-    private WaitForSeconds wfs;
-
     [Space]
     public UnityEvent<AccidentType> onStartAccident;
+
+    private NoticePanel noticePanel;
 
     private void Awake()
     {
@@ -28,6 +28,8 @@ public class AccidentManager : MonoBehaviour
     private void Start()
     {
         InitAccident();
+
+        noticePanel = GameObject.FindObjectOfType<NoticePanel>();
     }
 
     private void Update()
@@ -68,7 +70,8 @@ public class AccidentManager : MonoBehaviour
         accident.gameObject.SetActive(true);
         accident.StartAccident();
         activeAccidents.Add(accident);
-        onStartAccident?.Invoke(accident.AccidentType);
+        noticePanel.SetText(accident.Info.StartNoticeText);
+        onStartAccident?.Invoke(accident.Info.AccidentType);
     }
 
     private void UpdateAccidents()

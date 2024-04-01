@@ -5,9 +5,8 @@ using UnityEngine.Events;
 
 public abstract class Accident : MonoBehaviour
 {
-    [Space] 
-    [SerializeField] private AccidentType accidentType;
-    public AccidentType AccidentType => accidentType;
+    [SerializeField] private AccidentInfoSO info;
+    public AccidentInfoSO Info => info;
 
     public bool isActive { get; protected set; }
 
