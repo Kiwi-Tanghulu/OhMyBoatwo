@@ -12,7 +12,7 @@ public class MusketPistol : Equipment, IAimable, IAttackable
     [SerializeField] private Equipment nextEquipment;
     [SerializeField] private UnityEvent fireEvent;
     [SerializeField] private CinemachineVirtualCamera cam;
-    [SerializeField] private Transform playerLookAtTrm;
+    private Transform playerLookAtTrm;
     [SerializeField] private Transform fireStartTrm;
     [SerializeField] private LayerMask monsterLayer;
     [SerializeField] private ParticleSystem hitEffect;
@@ -26,12 +26,19 @@ public class MusketPistol : Equipment, IAimable, IAttackable
     private bool isFire;
     public bool IsAim => isAim;
     [SerializeField] float aimDuration;
+    private PlayerHitCrosshair hitCrosshair;
     public float AimDuration => aimDuration;
     public void Aim(bool value)
     {
         isAim = false;
         StopAllCoroutines();
         StartCoroutine(Aiming(value));
+    }
+
+    private void Awake()
+    {
+        playerLookAtTrm = Camera.main.transform.Find("CrosshairTarget");
+        hitCrosshair = DEFINE.MainCanvas.Find("HitCrosshair").GetComponent<PlayerHitCrosshair>();
     }
 
     public void Attack()
