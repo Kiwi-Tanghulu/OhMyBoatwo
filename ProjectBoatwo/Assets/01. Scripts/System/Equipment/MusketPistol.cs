@@ -12,8 +12,14 @@ public class MusketPistol : Equipment, IAimable, IAttackable
     [SerializeField] private Equipment nextEquipment;
     [SerializeField] private UnityEvent fireEvent;
     [SerializeField] private CinemachineVirtualCamera cam;
+    [SerializeField] private Transform playerLookAtTrm;
+    [SerializeField] private Transform fireStartTrm;
+    [SerializeField] private LayerMask monsterLayer;
+    [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private float damage;
 
     [SerializeField] Rig aimRig;
+
     public Rig AimRig => aimRig;
 
     private bool isAim;
@@ -33,7 +39,17 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         if (!isAim || isFire) return;
         fireEvent?.Invoke();
         animator.enabled = true;
-        animator.Play("Fire" + equipmentName,0,0f);
+        animator.Play("Fire" + equipmentName, 0, 0f);
+        if (Physics.Raycast(fireStartTrm.position, (playerLookAtTrm.position - fireStartTrm.position).normalized, out RaycastHit hit,float.MaxValue))
+        {
+            if(hit.transform.gameObject.layer == monsterLayer)
+            {
+                hit.transform.TryGetComponent<IDamageable>(out IDamageable d);
+                d.OnDamaged(damage, fireStartTrm.parent);
+            }
+            hitEffect.transform.position = hit.point;
+            hitEffect.Play();
+        }
         isFire = true;
     }
     private void Start()
@@ -99,7 +115,7 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         if (isActive)
         {
             isActive = false;
-            animator.enabled = false; 
+            animator.enabled = false;
         }
         else
         {
