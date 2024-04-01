@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioTables:
   - Key: Footstep1
-    Audio: {fileID: 8300000, guid: 724134da14f61be4e8f6fbbe7a2621a9, type: 3}
+    Audio: {fileID: 8300000, guid: 09c4bc4173b55904e8a1a7449e6061a9, type: 3}
   - Key: Footstep2
-    Audio: {fileID: 8300000, guid: e615a97cc26322048827ed49723eb5d4, type: 3}
+    Audio: {fileID: 8300000, guid: 4f836681778ce5f4590e552503890d54, type: 3}
   - Key: Footstep3
-    Audio: {fileID: 8300000, guid: 67e185e14e4b4684a9c992ed3ad4be38, type: 3}
+    Audio: {fileID: 8300000, guid: 25d5e8a45aae11049ab802e9b363bab2, type: 3}

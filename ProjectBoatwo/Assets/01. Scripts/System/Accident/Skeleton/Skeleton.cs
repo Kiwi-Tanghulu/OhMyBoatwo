@@ -4,8 +4,6 @@ using UnityEngine.VFX;
 
 public class Skeleton : MonoBehaviour
 {
-    [SerializeField] private AudioLibrarySO audioLib;
-
     [Space]
     [SerializeField] LayerMask groundLayer = 0;
     [SerializeField] VisualEffect spawnEffect;
@@ -15,11 +13,6 @@ public class Skeleton : MonoBehaviour
 	public void Init()
     {
         // FitToGround();
-    }
-
-    private void Start()
-    {
-        DEFINE.GlobalAudioPlayer.PlayOneShot(audioLib["Appear1"]);
     }
 
     public void FitToGround()

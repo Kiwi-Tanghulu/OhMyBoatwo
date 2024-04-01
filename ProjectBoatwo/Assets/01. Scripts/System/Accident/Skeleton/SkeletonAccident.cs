@@ -15,8 +15,6 @@ public class SkeletonAccident : Accident
         if(accidentData.Container.childCount > 0)
             return;
 
-        DEFINE.GlobalAudioPlayer.PlayOneShot(audioLib["Event1"]);
-
         float delay = 0f;
         for(int i = 0; i < accidentData.SkeletonCount; ++i)
         {

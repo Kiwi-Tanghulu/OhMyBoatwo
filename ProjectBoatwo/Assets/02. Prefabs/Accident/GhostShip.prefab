@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 6263856666017302320}
   - component: {fileID: 7481554638508154384}
   - component: {fileID: 4822277328027929314}
+  - component: {fileID: 5308433738159707997}
   m_Layer: 9
   m_Name: GhostShip
   m_TagString: Untagged
@@ -157,8 +158,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e30a7ee7c507c4f8518dfa9e1e7091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioLib: {fileID: 0}
   accidentType: 0
-  audioClips: {fileID: 0}
+  OnStartAccident:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5308433738159707997}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Appear1
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEndAccident:
+    m_PersistentCalls:
+      m_Calls: []
   maxCannonFireDelay: 5
   minCannonFireDelay: 2
   maxFireCount: 3
@@ -225,6 +244,19 @@ MonoBehaviour:
   minAngularAdditiveForce: 0
   angularForceMultiplier: 0
   middleHeight: 0
+--- !u!114 &5308433738159707997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658472256449974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ced6c6c5b00e2488bee562bebdbbfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLibrary: {fileID: 11400000, guid: f0855ebcc37db6049b4f7d34498da775, type: 2}
 --- !u!1 &2160051276304167415
 GameObject:
   m_ObjectHideFlags: 0

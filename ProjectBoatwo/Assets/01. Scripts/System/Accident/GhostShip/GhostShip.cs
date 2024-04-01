@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class GhostShip : Accident
 {
-    
-
     [Space]
     private Animator anim;
     private readonly int appearHash = Animator.StringToHash("Appear");
@@ -50,8 +48,6 @@ public class GhostShip : Accident
         base.StartAccident();
 
         Appear(true);
-
-        DEFINE.GlobalAudioPlayer.PlayOneShot(audioLib["Appear1"]);
 
         col.enabled = false;
         transform.position = shipTrm.position + shipTrm.right * chaseDistance;

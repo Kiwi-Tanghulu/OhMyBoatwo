@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8254624299255241814}
   - component: {fileID: 3919250510161271281}
+  - component: {fileID: 5603452732351883801}
   m_Layer: 0
   m_Name: SkeletonAccident
   m_TagString: Untagged
@@ -45,4 +46,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accidentType: 1
+  OnStartAccident:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5603452732351883801}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Event3
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEndAccident:
+    m_PersistentCalls:
+      m_Calls: []
   accidentData: {fileID: 11400000, guid: 591cb25dd0e1b0045a7b60677a674798, type: 2}
+--- !u!114 &5603452732351883801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608606756167364297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ced6c6c5b00e2488bee562bebdbbfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLibrary: {fileID: 11400000, guid: c37c27eb802301542ad8508a150cf8e0, type: 2}

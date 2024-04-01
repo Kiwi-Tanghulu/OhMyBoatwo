@@ -9,6 +9,7 @@ public class SoundFeedback : Feedback
     
     public override void Play(Transform playTrm)
     {
+        Debug.Log("fire cannon");
         DEFINE.GlobalAudioPlayer.PlayOneShot(audioLib[clipName]);
     }
 }

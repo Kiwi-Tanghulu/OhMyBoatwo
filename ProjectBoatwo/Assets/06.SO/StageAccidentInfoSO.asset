@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: StageAccidentInfoSO
   m_EditorClassIdentifier: 
   stageAccidentInfos:
-  - startTime: 4
+  - startTime: 2
+    accident: {fileID: 6263856666017302320, guid: 26bde4f3e56d0a8479fd171fedbe9264,
+      type: 3}
+  - startTime: 3
     accident: {fileID: 8870278408029278126, guid: ce018b1327f6267479612e917f09adba,
+      type: 3}
+  - startTime: 4
+    accident: {fileID: 3919250510161271281, guid: a688f0aa9f76dfb449e90497f6a7fa93,
       type: 3}

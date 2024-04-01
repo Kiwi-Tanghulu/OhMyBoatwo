@@ -10,6 +10,10 @@ public class ResultPanel : MonoBehaviour
 {
     [SerializeField] UIInputSO input = null;
 
+    [Space]
+    [SerializeField] private BGMPlayer clearBGMPlayer;
+    [SerializeField] private BGMPlayer failBGMPlayer;
+
     [Space(15f)]
     [SerializeField] TweenOptOption tweenOption = null;
 
@@ -78,6 +82,8 @@ public class ResultPanel : MonoBehaviour
         }));
 
         resultText.text = cleared ? "CLEAR" : "FAIL";
+        BGMPlayer bgmPlayer = cleared ? clearBGMPlayer : failBGMPlayer;
+        bgmPlayer.StartBGM();
         timelineDirector.playableAsset = timelineOption.GetOption(cleared);
         timelineDirector.Play();
     }
