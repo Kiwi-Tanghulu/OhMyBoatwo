@@ -2,12 +2,14 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Content;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Events;
 
 public class MusketPistol : Equipment, IAimable, IAttackable
 {
+    [SerializeField] private Equipment nextEquipment;
     [SerializeField] private UnityEvent fireEvent;
     [SerializeField] private CinemachineVirtualCamera cam;
 
@@ -15,46 +17,62 @@ public class MusketPistol : Equipment, IAimable, IAttackable
     public Rig AimRig => aimRig;
 
     private bool isAim;
+    private bool isFire;
     public bool IsAim => isAim;
-
     [SerializeField] float aimDuration;
     public float AimDuration => aimDuration;
-
-    private bool canAttack;
     public void Aim(bool value)
     {
+        isAim = false;
         StopAllCoroutines();
-        if (value == false) isAim = false;
         StartCoroutine(Aiming(value));
     }
 
     public void Attack()
     {
-        if (!isAim || !canAttack) return;
+        if (!isAim || isFire) return;
         fireEvent?.Invoke();
+        animator.enabled = true;
+        animator.Play("Fire" + equipmentName);
+        isFire = true;
     }
-
+    private void Start()
+    {
+        EnterItem();
+    }
     public override void EnterItem()
     {
+        base.EnterItem();
+        Debug.Log("들어왔다");
         input.OnAimEvent += Aim;
         input.OnFireEvent += Attack;
+        input.OnChangeEvent += StartOffAnimation;
+        trigger.AnimationEnd += ChangeNextEquipment;
+        animator.Play("On" + equipmentName);
+        aimRig.weight = 0f;
+        isActive = true;
         isAim = false;
-        canAttack = true;
+        isFire = false;
     }
     public override void ExitItem()
     {
+        base.ExitItem();
         input.OnAimEvent -= Aim;
         input.OnFireEvent -= Attack;
+        input.OnChangeEvent -= StartOffAnimation;
+        trigger.AnimationEnd -= ChangeNextEquipment;
+        nextEquipment.EnterItem();
     }
     private IEnumerator Aiming(bool value)
     {
+        float targetWeight = value ? 1f : 0f;
         while (true)
         {
-            aimRig.weight += Time.deltaTime / (value ? aimDuration : -aimDuration);
+            aimRig.weight = Mathf.Clamp(aimRig.weight + Time.deltaTime / (value ? aimDuration : -aimDuration), 0f, 1f);
             cam.m_Lens.FieldOfView = Mathf.Lerp(60f, 50f, aimRig.weight);
-            if(1f - aimRig.weight < 0.02f)
+            if (Mathf.Approximately(aimRig.weight, targetWeight))
             {
-                aimRig.weight = value ? 1 : -1;
+                aimRig.weight = targetWeight;
                 break;
             }
             yield return null;
@@ -63,4 +81,29 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         if (aimRig.weight > 0.98f) isAim = true;
     }
 
+    public void StartOffAnimation()
+    {
+        animator.enabled = true;
+        animator.Play("Off" + equipmentName);
+    }
+
+    public void ChangeNextEquipment()
+    {
+        if (isFire)
+        {
+            isFire = false;
+            animator.enabled = false;
+            return;
+        }
+
+        if (isActive)
+        {
+            isActive = false;
+            animator.enabled = false; 
+        }
+        else
+        {
+            ExitItem();
+        }
+    }
 }
