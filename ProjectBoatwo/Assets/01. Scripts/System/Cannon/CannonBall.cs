@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class CannonBall : PoolableMono
 {
+    [SerializeField] private AudioLibrarySO audioClips;
+
+    [Space]
     [SerializeField] private float deactiveTime;
     [SerializeField] private float hitDamage;
     private Coroutine deactiveCo;
@@ -57,7 +60,7 @@ public class CannonBall : PoolableMono
         {
             if (obj.transform.TryGetComponent<IDamageable>(out IDamageable d))
                 d.OnDamaged(hitDamage, transform);
-            
+
             onHit?.Invoke();
             StopAllCoroutines();
             gameObject.SetActive(false);

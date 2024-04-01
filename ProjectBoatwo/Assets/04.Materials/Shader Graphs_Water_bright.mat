@@ -67,7 +67,7 @@ Material:
     - _DoamFalloff: 0.1
     - _FoamAmount: 0.005
     - _FoamCutout: 0.002
-    - _FoamDepth: 0.115
+    - _FoamDepth: 0.01
     - _FoamShoreWidth: 0.975
     - _FoamTiling: 0.2
     - _QueueControl: 0

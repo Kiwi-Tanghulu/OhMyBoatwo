@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 2576588855922421021}
   - component: {fileID: 1739232652632114914}
   - component: {fileID: 6127075408022156710}
+  - component: {fileID: 4361966553756163867}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -593,7 +594,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
+  spawnEffect: {fileID: 8147895443162463537, guid: 12edeeb73b060c2448bf9c271436a1d5,
+    type: 3}
 --- !u!114 &6206511002646662426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +696,19 @@ NavMeshAgent:
   m_BaseOffset: -0.25
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4361966553756163867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145489597037440268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ced6c6c5b00e2488bee562bebdbbfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLibrary: {fileID: 11400000, guid: c37c27eb802301542ad8508a150cf8e0, type: 2}
 --- !u!1 &6473285884215972834
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +787,7 @@ GameObject:
   - component: {fileID: 9201715860328986207}
   - component: {fileID: 7070876639239089474}
   - component: {fileID: 8889679609655682043}
+  - component: {fileID: 2299239051921009631}
   m_Layer: 0
   m_Name: IdleState
   m_TagString: Untagged
@@ -850,6 +867,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: e27121b90445b6a43a28132f3d02e3a4, type: 2}
+--- !u!114 &2299239051921009631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264167003044345622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd4ceae40434614db05d243a84a4b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7758598505866123724
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +975,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4361966553756163867}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Appear1
           m_BoolArgument: 1
         m_CallState: 2
   OnExitStateEvent:
@@ -1123,6 +1164,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 4361966553756163867}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hit
+          m_BoolArgument: 1
+        m_CallState: 2
   OnExitStateEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1208,6 +1261,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2468889828458600031, guid: 4a46e821c58b5cd42b14eaab6d197266,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468889828458600031, guid: 4a46e821c58b5cd42b14eaab6d197266,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468889828458600031, guid: 4a46e821c58b5cd42b14eaab6d197266,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468889828458600031, guid: 4a46e821c58b5cd42b14eaab6d197266,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1255,6 +1323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468889828458600031, guid: 4a46e821c58b5cd42b14eaab6d197266,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

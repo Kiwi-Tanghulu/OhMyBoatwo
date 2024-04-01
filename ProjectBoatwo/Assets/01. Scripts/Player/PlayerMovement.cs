@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isJump;
     public bool IsJump { get => isJump; set => isJump = value; }
 
+    [SerializeField] private float gravityScale;
+    private float verticalVelocity;
+
     private bool isRun;
     public bool IsRun { get; set; }
 
@@ -31,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 DownArrivePos { get; private set; }
     #endregion
 
-    private Rigidbody rigid;
-    public Rigidbody Rigid => rigid;
+   // private Rigidbody rigid;
+    //public Rigidbody Rigid => rigid;
 
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private BoxCollider groundCheckCol;
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+        //rigid = GetComponent<Rigidbody>();
         InputManager.ChangeInputMap(InputMapType.Play);
     }
     private void Start()
@@ -50,6 +53,14 @@ public class PlayerMovement : MonoBehaviour
     {
         input.OnMoveEvent -= SetMoveDirection;
     }
+    public void SetVerticalVelocity(float value)
+    {
+        verticalVelocity = value;
+    }
+    public void Gravity()
+    {
+        verticalVelocity -= gravityScale * Time.deltaTime;
+    }
     public void SetCurrentMaxSpeed(float _currentMaxSpeed)
     {
         currentMaxSpeed = _currentMaxSpeed;
@@ -57,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
     public void SpeedCalculate()
     {
         if (currentSpeed > currentMaxSpeed)
-            currentSpeed += -speedMultiplier * Time.fixedDeltaTime;
+            currentSpeed += -speedMultiplier * Time.deltaTime;
         else
-            currentSpeed += (MoveDir.sqrMagnitude > 0.1f ? speedMultiplier : -speedMultiplier) * Time.fixedDeltaTime;
+            currentSpeed += (MoveDir.sqrMagnitude > 0.1f ? speedMultiplier : -speedMultiplier) * Time.deltaTime;
         currentSpeed = Mathf.Clamp(currentSpeed, 0f, float.MaxValue);
     }
     public void ResetSpeed()
@@ -68,21 +79,26 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move()
     {
-        Vector3 moveDir = transform.rotation * lastMoveDir;
+        if (!IsGround())
+        {
+            Gravity();
+        }
+        Vector3 moveDir = transform.localRotation * lastMoveDir;
         if (IsOnSlope() && IsGround() && !isJump)
         {
             moveDir = AdjustDirectionToSlope(moveDir);
-            rigid.useGravity = false;
-            rigid.velocity = Vector3.zero;
+            //rigid.useGravity = false;
+            //rigid.velocity = Vector3.zero;
         }
         else
         {
-            rigid.useGravity = true;
+            //rigid.useGravity = true;
         }
-        rigid.MovePosition(transform.position + moveDir * currentSpeed * Time.fixedDeltaTime);
+        //rigid.MovePosition(transform.position + moveDir * currentSpeed * Time.fixedDeltaTime);
+        transform.localPosition += (moveDir * currentSpeed + verticalVelocity * Vector3.up) * Time.deltaTime;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         SpeedCalculate();
         Move();

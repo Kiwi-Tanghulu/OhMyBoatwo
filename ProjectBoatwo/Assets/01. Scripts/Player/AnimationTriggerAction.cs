@@ -10,7 +10,7 @@ public class AnimationTriggerAction : FSMAction
     public override void Init(FSMBrain brain, FSMState state)
     {
         base.Init(brain, state);
-        animationTrigger = brain.transform.Find("Visual").GetComponent<AnimationTrigger>();
+        animationTrigger = brain.transform.Find("Virtual Camera").Find("Visual").GetComponent<AnimationTrigger>();
     }
 
     public override void EnterState()

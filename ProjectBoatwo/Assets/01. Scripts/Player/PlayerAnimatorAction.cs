@@ -12,7 +12,7 @@ public class PlayerAnimatorAction : FSMAction
     public override void Init(FSMBrain brain, FSMState state)
     {
         base.Init(brain, state);
-        animator = brain.transform.Find("Visual").GetComponent<Animator>();
+        animator = brain.transform.Find("Virtual Camera").Find("Visual").GetComponent<Animator>();
         animBoolHash = Animator.StringToHash(animBoolName);
         playerMovement = brain.transform.GetComponent<PlayerMovement>();
     }
