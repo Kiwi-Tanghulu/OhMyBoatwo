@@ -878,6 +878,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: repairHealAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6298900190780236155}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FinishStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Stage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218200167462036894, guid: da53aa77af3a889429e6aed640fe9367,
+        type: 3}
+      propertyPath: onDied.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4883114736070492410, guid: da53aa77af3a889429e6aed640fe9367,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
