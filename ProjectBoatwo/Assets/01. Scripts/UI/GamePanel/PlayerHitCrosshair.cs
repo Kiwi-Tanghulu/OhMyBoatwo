@@ -19,13 +19,18 @@ public class PlayerHitCrosshair : MonoBehaviour
     {
         crosshairRect = GetComponent<RectTransform>();
     }
-
     private void Start()
     {
-        for (int i = 0; i < linesImage.Count; i++)
+        for(int i = 0; i < linesImage.Count; i++)
         {
             linesImage[i].color = maxColor;
         }
+    }
+
+    public void StartCor()
+    {
+        StopAllCoroutines();
+        StartCoroutine(CrosshairDynamic());
     }
 
     private IEnumerator CrosshairDynamic()
