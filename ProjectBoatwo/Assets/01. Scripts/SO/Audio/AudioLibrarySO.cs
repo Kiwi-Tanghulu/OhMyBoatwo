@@ -11,18 +11,38 @@ public class AudioLibrarySO : ScriptableObject
 
     private void OnEnable()
     {
-        RefreshAudioAssetAsync();
+        //RefreshAudioAssetAsync();
+        RefreshAudioAsset();
     }
 
     private void OnValidate()
     {
-        RefreshAudioAssetAsync();
+        //RefreshAudioAssetAsync();
+        RefreshAudioAsset();
     }
 
     [ContextMenu("Refresh")]
     private void Refresh()
     {
-        RefreshAudioAssetAsync();
+        //RefreshAudioAssetAsync();
+        RefreshAudioAsset();
+    }
+
+    private void RefreshAudioAsset()
+    {
+        if (Library != null)
+            Library.Clear();
+        else
+            Library = new Dictionary<string, AudioDictionaryTable>();
+
+        for (int i = 0; i < audioTables.Count; ++i)
+        {
+            AudioDictionaryTable table = audioTables[i];
+            if (Library.ContainsKey(table.Key))
+                continue;
+
+            Library.Add(table.Key, table);
+        }
     }
 
     private async void RefreshAudioAssetAsync()
