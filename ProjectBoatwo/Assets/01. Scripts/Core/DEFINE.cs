@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class DEFINE
 {
-    public const float StageReadyCount = 3f;
+    public const float StageReadyCount = 5.5f;
 
 	private static FadeImage fadeImage = null;
     public static FadeImage FadeImage {
