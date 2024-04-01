@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00431c6957beafe42b9396c8099a2cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accidentType: 1
+  info: {fileID: 11400000, guid: e2de0dfb87411e048be54e159505bd91, type: 2}
   OnStartAccident:
     m_PersistentCalls:
       m_Calls:

@@ -1327,7 +1327,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7672e0b1476024468d05c81943e3115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accidentType: 2
+  info: {fileID: 11400000, guid: 224afe8f909b3204ab33fa6d22f409c1, type: 2}
+  OnStartAccident:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEndAccident:
+    m_PersistentCalls:
+      m_Calls: []
   startDistance: 150
 --- !u!114 &1658456429417437104
 MonoBehaviour:
