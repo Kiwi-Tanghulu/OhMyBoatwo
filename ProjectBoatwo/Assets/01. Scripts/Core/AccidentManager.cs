@@ -9,7 +9,7 @@ public class AccidentManager : MonoBehaviour
 
     [SerializeField] private StageAccidentInfoSO accidentInfo;
     [SerializeField] private float checkStartAccidentInterval;
-    private float currentInterval; // test field;
+    private float currentInterval;
     private List<Accident> activeAccidents;
     private List<StageAccidentInfo> allAccidentInfos;
 
@@ -23,14 +23,11 @@ public class AccidentManager : MonoBehaviour
         Instance = this;
 
         activeAccidents = new List<Accident>();
-        wfs = new WaitForSeconds(checkStartAccidentInterval);
     }
 
     private void Start()
     {
         InitAccident();
-
-        StartCoroutine(CheckStartAccident());
     }
 
     private void Update()
@@ -38,6 +35,14 @@ public class AccidentManager : MonoBehaviour
         UpdateAccidents();
 
         currentInterval += Time.deltaTime;
+
+        for (int i = 0; i < allAccidentInfos.Count; i++)
+        {
+            if (Mathf.Abs(allAccidentInfos[i].startTime - currentInterval) <= 0.1f)
+            {
+                StartAccident(allAccidentInfos[i].accident);
+            }
+        }
     }
 
     private void InitAccident()
@@ -77,21 +82,5 @@ public class AccidentManager : MonoBehaviour
     public void EndAccident(Accident accident)
     {
         activeAccidents.Remove(accident);
-    }
-
-    private IEnumerator CheckStartAccident()
-    {
-        while (true)
-        {
-            yield return wfs;
-
-            for (int i = 0; i < allAccidentInfos.Count; i++)
-            {
-                if (Mathf.Abs(allAccidentInfos[i].startTime - currentInterval) <= 0.1f)
-                {
-                    StartAccident(allAccidentInfos[i].accident);
-                }
-            }
-        }
     }
 }

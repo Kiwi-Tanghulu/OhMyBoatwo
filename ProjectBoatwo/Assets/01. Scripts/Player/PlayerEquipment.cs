@@ -11,8 +11,6 @@ public class PlayerEquipment : MonoBehaviour
 
     private Equipment currentEquipment;
 
-    [SerializeField] private Rig playerHandRig;
-
     [SerializeField] private float weaponChangeDuration;
 
     private bool isChange;
@@ -23,8 +21,6 @@ public class PlayerEquipment : MonoBehaviour
         currentEquipment = mainEquipment;
         isChange = false;
 
-        playerHandRig.weight = 1f;
-
         mainEquipment.EnterItem();
     }
 
@@ -34,37 +30,9 @@ public class PlayerEquipment : MonoBehaviour
     }
     private void ChangeWeapon()
     {
-        if(!isChange)
-            StartCoroutine(SwitchEquipment());
-    }
-
-    private IEnumerator SwitchEquipment()
-    {
-        isChange = true;
-        while (true)
+        if (!isChange)
         {
-            playerHandRig.weight -= Time.deltaTime / weaponChangeDuration;
-            if(playerHandRig.weight <= 0.02f)
-            {
-                playerHandRig.weight = 0f;
-                break;
-            }
-            yield return null;
+
         }
-
-        while (true)
-        {
-            playerHandRig.weight += Time.deltaTime / weaponChangeDuration;
-            if(playerHandRig.weight >= 0.98f)
-            {
-                playerHandRig.weight = 1f;
-                break;
-            }
-            yield return null;
-        }
-
-        //SwapEquipment();
-
-        isChange = false;
     }
 }
