@@ -1037,6 +1037,8 @@ GameObject:
   - component: {fileID: 2658702964651406119}
   - component: {fileID: 6921370935796005660}
   - component: {fileID: 5017833343014861342}
+  - component: {fileID: 6988163590728888738}
+  - component: {fileID: 2551114094131112097}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1186,6 +1188,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6988163590728888738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505704301136561080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dfef7a8af3e614d9119229cd0e9fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 88c86053c51125c4e9a130ca7a846d9b, type: 2}
+--- !u!114 &2551114094131112097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505704301136561080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0808c6ce85285ff4382a77a56c16be1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeTranform: {fileID: 5454473501236086095}
+  focusingLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  distance: 1.5
+  FocusedPoint: {x: 0, y: 0, z: 0}
+  gizmo: 0
 --- !u!1 &2558362606094626640
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,13 +42,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CutEdge: -22.7
+    - _CutEdge: -45.9
     - _DistortionPower: 0
     - _FresnelPower: 1
     - _GlowDistance: 1
     - _GlowPower: -0.1
     - _GlowSpread: 12
-    - _MainColorIntensity: 252.9
+    - _MainColorIntensity: 200
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

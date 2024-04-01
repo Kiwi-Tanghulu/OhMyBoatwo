@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Accident : MonoBehaviour
 {
+    [SerializeField] protected AudioLibrarySO audioLib;
+
+    [Space] 
     [SerializeField] private AccidentType accidentType;
     public AccidentType AccidentType => accidentType;
 
