@@ -245,40 +245,13 @@ MonoBehaviour:
   lumVsSat:
     m_OverrideState: 1
     m_Value:
-      <length>k__BackingField: 4
+      <length>k__BackingField: 1
       m_Loop: 0
       m_ZeroValue: 0.5
       m_Range: 1
       m_Curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 3
-          time: 0.0078074215
-          value: 0
-          inSlope: 6.045887
-          outSlope: 6.045887
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0
-          outWeight: 0
-        - serializedVersion: 3
-          time: 0.24202992
-          value: 0.43636358
-          inSlope: 0.084300436
-          outSlope: 0.084300436
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0
-          outWeight: 0
-        - serializedVersion: 3
-          time: 0.82758623
-          value: 0.43636358
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0
-          outWeight: 0
         - serializedVersion: 3
           time: 1
           value: 0

@@ -42,8 +42,11 @@ public class StageInfoPanel : MonoBehaviour
     {
         Debug.Log("Create Stage");
         tweenOption.NegativeOption.PlayTween(() => {
-            SceneLoader.LoadSceneAsync("GameScene", true, () => {
-                StageManager.Instance.CreateStage(currentStageData);
+            DEFINE.FadeImage.FadeInHorizontal(-1, 1f, () => {
+                SceneLoader.LoadSceneAsync("GameScene", true, () => {
+                    StageManager.Instance.CreateStage(currentStageData);
+                    DEFINE.FadeImage.FadeOutHorizontal(1);
+                });
             });
         });
     }

@@ -13,7 +13,7 @@ public class WaterLeak : MonoBehaviour, IFocusable, IInteractable
     [SerializeField] private float repairTime;
     private float currentRepairTime;
 
-    private GameObject focusedObj;
+    //private GameObject focusedObj;
 
     private GameObject repairer;
 
@@ -23,7 +23,7 @@ public class WaterLeak : MonoBehaviour, IFocusable, IInteractable
 
     private void Awake()
     {
-        focusedObj = transform.Find("FocusedVisual").gameObject;
+        //focusedObj = transform.Find("FocusedVisual").gameObject;
     }
 
     private void Start()
@@ -59,12 +59,14 @@ public class WaterLeak : MonoBehaviour, IFocusable, IInteractable
 
     public void OnFocusBegin(Vector3 point)
     {
-        focusedObj.gameObject.SetActive(true);
+        Debug.Log("focus");
+        //focusedObj.gameObject.SetActive(true);
     }
 
     public void OnFocusEnd()
     {
-        focusedObj.gameObject.SetActive(false);
+        Debug.Log("unfocus");
+        //focusedObj.gameObject.SetActive(false);
     }
 
     public bool Interact(Component performer, bool actived, Vector3 point = default)

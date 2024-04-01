@@ -96957,11 +96957,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1744804611}
     m_Modifications:
-    - target: {fileID: 986452475344024690, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2792156165000176184, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -97102,6 +97097,23 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4752133803604632845, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c70b284f146a0014097cce56021615fb,
+        type: 2}
+    - target: {fileID: 4752133803604632845, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8361124454214815553, guid: c70b284f146a0014097cce56021615fb,
+        type: 2}
+    - target: {fileID: 4752133803604632845, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5074506640041335508, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -97152,6 +97164,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653577427593459098, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
+        type: 3}
+      propertyPath: timelineDirector
+      value: 
+      objectReference: {fileID: 1450411404}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8162075154739228196, guid: 18a3d383c2e36d14692aa3fa7bd077c3, type: 3}
@@ -97175,19 +97192,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1266512092}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6633609332203274727, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6804114229660679762}
-    - targetCorrespondingSourceObject: {fileID: 6633609332203274727, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6804114229660679764}
-    - targetCorrespondingSourceObject: {fileID: 6633609332203274727, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6804114229660679763}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a3d383c2e36d14692aa3fa7bd077c3, type: 3}
 --- !u!224 &6804114229660679760 stripped
 RectTransform:
@@ -97195,74 +97200,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6804114229660679759}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6804114229660679761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6633609332203274727, guid: 18a3d383c2e36d14692aa3fa7bd077c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6804114229660679759}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6804114229660679762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6804114229660679761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0cb01ef976f6d46b4b44475b5fcfd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 30bbbbaaa5e9bc741b2a5df05ddbbed9, type: 2}
-  clearBGMPlayer: {fileID: 6804114229660679764}
-  failBGMPlayer: {fileID: 6804114229660679763}
-  tweenOption:
-    PositiveOption: {fileID: 11400000, guid: e31928ff180ac2f47840096f7c21a1fb, type: 2}
-    NegativeOption: {fileID: 11400000, guid: e65ce2271e2b09445b570921b814f846, type: 2}
-  resultSlotPrefab: {fileID: 7291916258695963492, guid: 7c95a00faf221f74ebdef7eb0d4bc9fc,
-    type: 3}
-  timelineDirector: {fileID: 1450411404}
-  timelineOption:
-    PositiveOption: {fileID: 11400000, guid: 4043673ee66599e4aa5bd74d45c7e774, type: 2}
-    NegativeOption: {fileID: 11400000, guid: e1a89b0ddc1990744a325353a6c9c20c, type: 2}
---- !u!114 &6804114229660679763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6804114229660679761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f164f5eea1010c8408377781b8cce1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioLibrary: {fileID: 11400000, guid: ddd20d190096a30438efb16dcc506774, type: 2}
-  bgmList:
-  - ResultFail1
-  - ResultFail2
-  - ResultFail3
-  replayDelay: 5
-  playOnAwake: 0
---- !u!114 &6804114229660679764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6804114229660679761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f164f5eea1010c8408377781b8cce1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioLibrary: {fileID: 11400000, guid: ddd20d190096a30438efb16dcc506774, type: 2}
-  bgmList:
-  - ResultClear1
-  - ResultClear2
-  - ResultClear3
-  replayDelay: 5
-  playOnAwake: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

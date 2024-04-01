@@ -419,6 +419,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2802392971835437978}
   - component: {fileID: 482070833227083593}
+  - component: {fileID: 8653577427593459098}
+  - component: {fileID: 4359270810314404978}
+  - component: {fileID: 7287034815213744533}
   m_Layer: 5
   m_Name: ResultPanel
   m_TagString: Untagged
@@ -545,6 +548,68 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8653577427593459098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633609332203274727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0cb01ef976f6d46b4b44475b5fcfd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 30bbbbaaa5e9bc741b2a5df05ddbbed9, type: 2}
+  clearBGMPlayer: {fileID: 4359270810314404978}
+  failBGMPlayer: {fileID: 7287034815213744533}
+  tweenOption:
+    PositiveOption: {fileID: 11400000, guid: e31928ff180ac2f47840096f7c21a1fb, type: 2}
+    NegativeOption: {fileID: 11400000, guid: e65ce2271e2b09445b570921b814f846, type: 2}
+  resultSlotPrefab: {fileID: 7291916258695963492, guid: 7c95a00faf221f74ebdef7eb0d4bc9fc,
+    type: 3}
+  timelineDirector: {fileID: 0}
+  timelineOption:
+    PositiveOption: {fileID: 11400000, guid: 4043673ee66599e4aa5bd74d45c7e774, type: 2}
+    NegativeOption: {fileID: 11400000, guid: e1a89b0ddc1990744a325353a6c9c20c, type: 2}
+--- !u!114 &4359270810314404978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633609332203274727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f164f5eea1010c8408377781b8cce1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLibrary: {fileID: 11400000, guid: ddd20d190096a30438efb16dcc506774, type: 2}
+  bgmList:
+  - ResultClear1
+  - ResultClear2
+  - ResultClear3
+  replayDelay: 5
+  playOnAwake: 0
+--- !u!114 &7287034815213744533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633609332203274727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f164f5eea1010c8408377781b8cce1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLibrary: {fileID: 11400000, guid: ddd20d190096a30438efb16dcc506774, type: 2}
+  bgmList:
+  - ResultFail1
+  - ResultFail2
+  - ResultFail3
+  replayDelay: 5
+  playOnAwake: 0
 --- !u!1001 &451001551923597728
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -274,14 +274,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DAMAGE : 1000
-
-    REVIVE : 1000
-
-    FAINT : 1000'
+  m_text: "\uC785\uD78C \uD53C\uD574\\t1000\n\uBD80\uD65C \uD69F\uC218\\t1000\n\uAE30\uC808
+    \uD69F\uC218\\t1000"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c70b284f146a0014097cce56021615fb, type: 2}
+  m_sharedMaterial: {fileID: -8361124454214815553, guid: c70b284f146a0014097cce56021615fb,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
