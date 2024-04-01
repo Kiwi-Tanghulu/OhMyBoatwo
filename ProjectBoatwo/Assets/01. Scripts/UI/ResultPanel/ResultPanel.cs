@@ -41,6 +41,22 @@ public class ResultPanel : MonoBehaviour
         tweenOption.PositiveOption.OnTweenCompletedEvent += HandleSlotDisplay;
     }
 
+    private void Start()
+    {
+        InputManager.ChangeInputMap(InputMapType.UI);
+        Clear();
+
+        DEFINE.FadeImage.FadeOutAlpha();
+
+        // Init(true, new PlayerInfo());
+        // Display(true);
+    }
+
+    private void OnDestroy()
+    {
+        input.OnAnyKeyEvent -= HandleNext;
+    }
+
     private void HandleSlotDisplay()
     {
         float delay = 0f;
@@ -50,20 +66,6 @@ public class ResultPanel : MonoBehaviour
                 i.Display(true);
             }));
         });
-    }
-
-    private void Start()
-    {
-        InputManager.ChangeInputMap(InputMapType.UI);
-        Clear();
-
-        // Init(true, new PlayerInfo());
-        // Display(true);
-    }
-
-    private void OnDestroy()
-    {
-        input.OnAnyKeyEvent -= HandleNext;
     }
 
     public void Init(bool cleared, params PlayerInfo[] playerInfos)
