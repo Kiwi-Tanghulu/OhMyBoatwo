@@ -20,6 +20,8 @@ public class StageManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()

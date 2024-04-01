@@ -38,6 +38,7 @@ public class AudioLibrarySO : ScriptableObject
         for (int i = 0; i < audioTables.Count; ++i)
         {
             AudioDictionaryTable table = audioTables[i];
+            Debug.Log(table.Key);
             if (Library.ContainsKey(table.Key))
                 continue;
 

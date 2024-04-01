@@ -39,6 +39,8 @@ public class ResultPanel : MonoBehaviour
 
         tweenOption.Init(transform);
         tweenOption.PositiveOption.OnTweenCompletedEvent += HandleSlotDisplay;
+
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Start()

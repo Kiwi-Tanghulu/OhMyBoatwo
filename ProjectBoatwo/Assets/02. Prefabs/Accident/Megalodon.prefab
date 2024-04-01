@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6320b1f7c568b6545854db26d707a0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 60
   onDamaged:
     m_PersistentCalls:
       m_Calls: []
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 4054405060244134632}
   - component: {fileID: 2634058512682993657}
   m_Layer: 0
-  m_Name: TransAttack
+  m_Name: TransApproach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReverse: 0
-  transTime: 3
+  transTime: 10
 --- !u!1 &8196529927290176036
 GameObject:
   m_ObjectHideFlags: 0

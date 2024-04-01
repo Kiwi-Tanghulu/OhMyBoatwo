@@ -4,15 +4,12 @@ using UnityEngine;
 public class SkeletonSpawnPositionSelector : MonoBehaviour
 {
 	[SerializeField] SkeletonAccidentSO accidentData = null;
-    [SerializeField] List<Transform> spawnPositions = null;
+    [SerializeField] Transform[] spawnPositions = null;
 
-    private void Awake()
+
+    public void SetParam()
     {
         accidentData.Container = transform.Find("Container");
-    }
-
-    private void Start()
-    {
-        accidentData.SpawnPositions = spawnPositions.ToArray();
+        accidentData.SpawnPositions = spawnPositions;
     }
 }

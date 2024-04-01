@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef57cc8134a4b794bb45785f7a95fbd8, type: 3}
   m_Name: SkeletonAccident
   m_EditorClassIdentifier: 
-  SpawnPosition: {fileID: 0}
+  SpawnPositions: []
   Container: {fileID: 0}
   SkeletonPrefab: {fileID: -4211878872208535970, guid: eab7839b453f7a843bfe6efc825d7595,
     type: 3}

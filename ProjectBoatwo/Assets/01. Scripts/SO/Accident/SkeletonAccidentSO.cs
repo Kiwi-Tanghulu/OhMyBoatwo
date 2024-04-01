@@ -13,6 +13,7 @@ public class SkeletonAccidentSO : ScriptableObject
 
     public Vector3 GetSpawnPosition(int index)
     {
+        Debug.Log(index);
         Vector3 origin = SpawnPositions[index].position;
         Vector3 factor = Random.insideUnitCircle;
         float distance = Random.Range(0f, SpawnRadius);

@@ -15,6 +15,6 @@ MonoBehaviour:
   AttackRange: 14.32
   AttackCooldown: 0
   DashDistance: 0
-  Damage: 10
+  Damage: 50
   IsCooldown: 0
   GIZMO: 0

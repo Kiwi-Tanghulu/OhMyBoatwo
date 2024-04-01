@@ -17,10 +17,11 @@ public class SkeletonAccident : Accident
             if(accidentData.Container.childCount > 0)
                 return;
 
+            int index = i;
             float delay = 0f;
             for(int j = 0; j < accidentData.SkeletonCount; ++j)
             {
-                StartCoroutine(this.DelayCoroutine(delay, () => SpawnSkeleton(i)));
+                StartCoroutine(this.DelayCoroutine(delay, () => SpawnSkeleton(index)));
                 delay += accidentData.SpawnRate;
             }
         }
