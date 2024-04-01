@@ -49,6 +49,7 @@ public class MusketPistol : Equipment, IAimable, IAttackable
         animator.Play("Fire" + equipmentName, 0, 0f);
         if (Physics.Raycast(fireStartTrm.position, (playerLookAtTrm.position - fireStartTrm.position).normalized, out RaycastHit hit,float.MaxValue,monsterLayer))
         {
+            hitCrosshair.SetMaxSize(140f);
             hitCrosshair.StartCor();
             hit.transform.GetComponent<Health>().OnDamaged(damage, transform);
             hitEffect.transform.position = hit.point;

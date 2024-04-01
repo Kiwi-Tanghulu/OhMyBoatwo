@@ -1,7 +1,16 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
+
+public enum CannonBallOwnerType
+{
+    Player,
+    Monster,
+}
+
 
 public class CannonBall : PoolableMono
 {
@@ -19,6 +28,9 @@ public class CannonBall : PoolableMono
 
     public UnityEvent onHit;
 
+    private CannonBallOwnerType ownerType;
+    private PlayerHitCrosshair crossHair;
+
     private void Awake()
     {
         wfs = new WaitForSeconds(deactiveTime);
@@ -30,6 +42,8 @@ public class CannonBall : PoolableMono
         Vector3 dir = rb.velocity.normalized;
         if(dir != Vector3.zero)
             transform.forward = rb.velocity.normalized;
+
+        crossHair = GameObject.FindObjectOfType<PlayerHitCrosshair>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,6 +54,11 @@ public class CannonBall : PoolableMono
     private void OnTriggerEnter(Collider other)
     {
         Hit(other.gameObject);
+    }
+
+    public void SetOwner(CannonBallOwnerType ownerType)
+    {
+        this.ownerType = ownerType;
     }
 
     public void Fire(Vector3 fireVector, LayerMask targetLayer)
@@ -59,7 +78,14 @@ public class CannonBall : PoolableMono
         if (1 << obj.gameObject.layer == targetLayer)
         {
             if (obj.transform.TryGetComponent<IDamageable>(out IDamageable d))
+            {
                 d.OnDamaged(hitDamage, transform);
+                if (ownerType == CannonBallOwnerType.Player)
+                {
+                    crossHair.SetMaxSize(400f);
+                    crossHair.StartCor();
+                }
+            }
 
             onHit?.Invoke();
             StopAllCoroutines();

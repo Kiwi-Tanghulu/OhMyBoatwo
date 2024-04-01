@@ -8672,7 +8672,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   hitEffect: {fileID: 5137366609405861947}
-  damage: 1
+  damage: 50
   aimRig: {fileID: 1760722571477248177}
   aimDuration: 0.2
 --- !u!1 &8109999377761962681

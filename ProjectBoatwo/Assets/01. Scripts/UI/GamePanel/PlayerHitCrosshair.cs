@@ -33,6 +33,11 @@ public class PlayerHitCrosshair : MonoBehaviour
         StartCoroutine(CrosshairDynamic());
     }
 
+    public void SetMaxSize(float value)
+    {
+        maxSize = value;
+    }
+
     private IEnumerator CrosshairDynamic()
     {
         float time = 0f;
