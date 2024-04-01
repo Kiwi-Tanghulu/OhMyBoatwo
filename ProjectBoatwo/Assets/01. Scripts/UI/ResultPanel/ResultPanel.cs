@@ -81,7 +81,7 @@ public class ResultPanel : MonoBehaviour
                 slot.transform.localPosition += Vector3.up * 1080;
         }));
 
-        resultText.text = cleared ? "CLEAR" : "FAIL";
+        resultText.text = cleared ? "성공" : "실패";
         BGMPlayer bgmPlayer = cleared ? clearBGMPlayer : failBGMPlayer;
         bgmPlayer.StartBGM();
         timelineDirector.playableAsset = timelineOption.GetOption(cleared);

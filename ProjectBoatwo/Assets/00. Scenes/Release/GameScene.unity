@@ -1557,6 +1557,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954925642}
     m_Modifications:
+    - target: {fileID: 749572204277673763, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 749572204277673763, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 749572204277673763, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1086286547458096545, guid: c1c7573e07489754c8a7f94a68d001af,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1710,6 +1725,38 @@ PrefabInstance:
     - target: {fileID: 2998098182503620848, guid: c1c7573e07489754c8a7f94a68d001af,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128216486601566536, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_text
+      value: "\uD574\uACE8\uC774 \uB4F1\uC7A5\uD569\uB2C8\uB2E4..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128216486601566536, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c70b284f146a0014097cce56021615fb,
+        type: 2}
+    - target: {fileID: 5128216486601566536, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128216486601566536, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8361124454214815553, guid: c70b284f146a0014097cce56021615fb,
+        type: 2}
+    - target: {fileID: 5128216486601566536, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128216486601566536, guid: c1c7573e07489754c8a7f94a68d001af,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6150309256567109974, guid: c1c7573e07489754c8a7f94a68d001af,
