@@ -12,7 +12,7 @@ public class MegalodonStateInfo
 }
 
 [CreateAssetMenu(menuName = "SO/Accident/Megalodon Info SO")]
-public class MegalodonInfoListSO : ScriptableObject
+public class MegalodonStateInfoListSO : ScriptableObject
 {
     public List<MegalodonStateInfo> MegalodonStateInfoList;
 

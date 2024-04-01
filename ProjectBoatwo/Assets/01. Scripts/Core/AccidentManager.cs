@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +31,7 @@ public class AccidentManager : MonoBehaviour
         InitAccident();
 
         noticePanel = GameObject.FindObjectOfType<NoticePanel>();
+        Debug.Log(noticePanel);
     }
 
     private void Update()

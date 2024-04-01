@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MegalodonFSMBrain : FSMBrain
 {
-    [SerializeField] private MegalodonInfoListSO info;
-    public MegalodonInfoListSO Info => info;
+    [SerializeField] private MegalodonStateInfoListSO info;
+    public MegalodonStateInfoListSO Info => info;
 
     public MegalodonMovement Movement { get; private set; }
 
