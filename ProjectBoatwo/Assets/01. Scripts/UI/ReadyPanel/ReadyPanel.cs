@@ -21,7 +21,7 @@ public class ReadyPanel : MonoBehaviour
             return;
 
         timer -= Time.deltaTime;
-        countingText.text = Mathf.CeilToInt(timer).ToString("0");
+        // countingText.text = Mathf.CeilToInt(timer).ToString("0");
 
         if(timer < 0)
         {
