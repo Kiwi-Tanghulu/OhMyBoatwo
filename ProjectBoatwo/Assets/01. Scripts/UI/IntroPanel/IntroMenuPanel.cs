@@ -28,4 +28,9 @@ public class MenuPanel : MonoBehaviour
     {
         Debug.Log("Pop Up Setting");
     }
+
+    public void ClickQuit()
+    {
+        Application.Quit();
+    }
 }
